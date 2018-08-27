@@ -1,0 +1,3884 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Asap|Gudea:400,400italic,700">
+  <link rel="stylesheet" type="text/css" href="assets-2/css/main.css?753765">
+  <link rel="stylesheet" type="text/css" href="tabs/tabs.css?753765">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="tabs/tabs.js"></script>
+  <script type="text/javascript" src="assets/js/analytics.js"></script>
+</head>
+<body>
+<header class="site-header-wrap">
+  <div class="site-header">
+    <!--<a class="site-logo" href="http://inspirationalpixels.com">Inspirational Pixels</a>-->
+    <span class="site-tagline">Exam - Javascript Fundamentals</span>
+    <!--<nav class="site-nav">-->
+      <!--<ul>-->
+        <!--<li><a href="http://inspirationalpixels.com/tutorials/creating-tabs-with-html-css-and-jquery"><span class="fa-reply"></span>Back To Tutorial</a></li>-->
+        <!--<li><a href="http://inspirationalpixels.com/tag/demo"><span class="fa-eye"></span>All Demos</a></li>-->
+      <!--</ul>-->
+    <!--</nav>-->
+  </div>
+</header>
+<div class="wrap">
+  <div class="main">
+    <h2>First Exercise</h2>
+    <div class="tabs standard">
+      <ul class="tab-links">
+        <li class="active"><a href="#tab1">Gladiator Expenses</a></li>
+        <li><a href="#tab2">Bitcoin Mining</a></li>
+        <li><a href="#tab3">The Hungry Programmer </a></li>
+        <li><a href="#tab4">The Pyramid of King Djoser  </a></li>
+        <li><a href="#tab5">Spice Must Flow  </a></li>
+        <li><a href="#tab6">Arithmephile</a></li>
+        <li><a href="#tab7">Cognate Words</a></li>
+        <li><a href="#tab8">Build a Table</a></li>
+        <li><a href="#tab9">Double Rakiya Numbers</a></li>
+        <li><a href="#tab10">Prices Trends </a></li>
+        <li><a href="#tab-1">Keep The Change </a></li>
+        <li><a href="#tab-2">Daggers and Swords </a></li>
+        <li><a href="#tab-3">Ewoks Fans </a></li>
+        <li><a href="#tab-4">The Teteven Trip </a></li>
+        <li><a href="#tab-5">Uncle Scrooge’s Bag </a></li>
+        <li><a href="#tab-6">Kitodar the Miner </a></li>
+        <li><a href="#tab-7">Exam Results </a></li>
+        <li><a href="#tab-8">Medenka Wars </a></li>
+
+      </ul>
+      <div class="tab-content">
+        <div id="tab1" class="tab active">
+          <p></p>
+          <pre>    <span class="red">function</span> solve(lostFights, helmetPrice, swordPrice, shieldPrice, armourPrice) {
+   <span class="red">let</span> totalSum <span class="red">= </span>0;
+    <span class="red">for</span> (let i <span class="red">= </span>1; i <<span class="red">= </span>lostFights; i++) {
+        <span class="red">if</span> (i % 2 ==<span class="red">= </span>0) {
+            totalSum +<span class="red">= </span>helmetPrice
+        }
+        <span class="red">if</span> (i % 3 ==<span class="red">= </span>0) {
+            totalSum +<span class="red">= </span>swordPrice
+        }
+        <span class="red">if</span> (i % 6 ==<span class="red">= </span>0) {
+            totalSum +<span class="red">= </span>shieldPrice
+        }
+        <span class="red">if</span> (i % 12 ==<span class="red">= </span>0) {
+            totalSum +<span class="red">= </span>armourPrice
+        }
+    }
+    console.log(`Gladiator expenses: ${totalSum.toFixed(2)} aureus`)
+}
+  </pre>
+        </div>
+        <div id="tab2" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> test(input) {
+   <span class="red">let</span> bitcoinPrice <span class="red">= </span>11949.16;
+   <span class="red">let</span> goldPrice <span class="red">= </span>67.51;
+   <span class="red">let</span> sumMoney <span class="red">= </span>0.0;
+   <span class="red">let</span> totalCoins <span class="red">= </span>0;
+   <span class="red">let</span> firstDayBuy <span class="red">= </span>0;
+   <span class="red">let</span> k <span class="red">= </span>0;
+
+   <span class="red">for</span> (let i <span class="red">= </span>1; i <<span class="red">= </span>input.length; i++) {
+
+       <span class="red">let</span> money <span class="red">= </span>parseFloat(input[i - 1]) * goldPrice;
+
+       <span class="red">if</span> (sumMoney + money ><span class="red">= </span>bitcoinPrice && k ==<span class="red">= </span>0) {
+            firstDayBuy <span class="red">= </span>i;
+            k++;
+        }
+
+       <span class="red">if</span> (i / 3 > 0 && i % 3 ==<span class="red">= </span>0) {
+            money *<span class="red">= </span>0.7;
+        }
+
+        sumMoney +<span class="red">= </span>money;
+
+       <span class="red">if</span> (sumMoney / bitcoinPrice > 1) {
+           <span class="red">let</span> count <span class="red">= </span>sumMoney / bitcoinPrice;
+            sumMoney -<span class="red">= </span>parseInt(count) * bitcoinPrice;
+            totalCoins +<span class="red">= </span>parseInt(count);
+        }
+    }
+
+    console.log("Bought bitcoins: " + totalCoins);
+   <span class="red">if</span> (totalCoins > 0) {
+        console.log("Day of the first purchased bitcoin: " + firstDayBuy);
+    }
+    console.log("Left money: " + sumMoney.toFixed(2) + " lv.")
+
+}
+
+test([100, 200, 300]);
+test([50, 100]);
+test([3124.15, 504.212, 2511.124]);</pre>
+        </div>
+        <div id="tab3" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> overeating(meals, args) {
+   <span class="red">let</span> portionsEaten <span class="red">= </span>0;
+   <span class="red">for</span> (let i <span class="red">= </span>0; i < args.length; i++) {
+       <span class="red">let</span> currentCommand <span class="red">= </span>args[i].split(' ');
+       <span class="red">if</span> (currentCommand =<span class="red">= </span>"End") {
+            break;
+        }
+        switch (currentCommand[0]) {
+            case "Serve": {
+               <span class="red">if</span> (meals.length < 1) {
+                    break;
+                }
+                console.log(`${meals.pop()} served!`);
+                break;
+            }
+            case "Add":
+               <span class="red">if</span> (currentCommand[1] =<span class="red">= </span>undefined) break;
+                meals.unshift(currentCommand[1]);
+                break;
+            case "Shift":
+                shiftPlates(currentCommand[1], currentCommand[2], meals);
+                break;
+            case "Eat":
+               <span class="red">if</span> (meals.length < 1) {
+                    break;
+                }
+                console.log(`${meals.shift()} eaten`);
+                portionsEaten++;
+                break;
+            case "Consume":
+                portionsEaten +<span class="red">= </span>consumeMeals(currentCommand[1], currentCommand[2], meals);
+                break;
+        }
+    }
+   <span class="red">if</span> (meals.length > 0) {
+        console.log(`Meals left: ${meals.join(', ')}`);
+    } else {
+        console.log("The food is gone");
+    }
+
+    console.log(`Meals eaten: ${portionsEaten}`);
+
+    <span class="red">function</span> shiftPlates(first, second, arr) {
+       <span class="red">let</span> firstIndex <span class="red">= </span>Number(first);
+       <span class="red">let</span> secondIndex <span class="red">= </span>Number(second);
+       <span class="red">if</span> (arr[firstIndex] !<span class="red">= </span>undefined && arr[secondIndex] !<span class="red">= </span>undefined) {
+           <span class="red">let</span> firstMeal <span class="red">= </span>arr[firstIndex];
+            arr[firstIndex] <span class="red">= </span>arr[secondIndex];
+            arr[secondIndex] <span class="red">= </span>firstMeal;
+        }
+    }
+
+    <span class="red">function</span> consumeMeals(first, second, arr) {
+       <span class="red">let</span> firstIndex <span class="red">= </span>Number(first);
+       <span class="red">let</span> secondIndex <span class="red">= </span>Number(second);
+       <span class="red">if</span> (arr[firstIndex] !<span class="red">= </span>undefined && arr[secondIndex] !<span class="red">= </span>undefined) {
+           <span class="red">let</span> count <span class="red">= </span>secondIndex - firstIndex + 1;
+            arr.splice(firstIndex, count);
+            console.log("Burp!");
+           <span class="red">return</span> count;
+        } else {
+           <span class="red">return</span> 0;
+        }
+    }
+}</pre>
+        </div>
+        <div id="tab4" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(base, increment) {
+   <span class="red">let</span> stone <span class="red">= </span>0;
+   <span class="red">let</span> marble <span class="red">= </span>0;
+   <span class="red">let</span> lapis <span class="red">= </span>0;
+   <span class="red">let</span> gold <span class="red">= </span>0;
+   <span class="red">let</span> step <span class="red">= </span>1;
+
+    while (base > 2) {
+       <span class="red">let</span> bulk <span class="red">= </span>(base - 2) ** 2;
+       <span class="red">let</span> decoration <span class="red">= </span>(base * 4) - 4;
+        stone +<span class="red">= </span>bulk * increment;
+       <span class="red">if</span> (step % 5 ==<span class="red">= </span>0) {
+            lapis +<span class="red">= </span>decoration * increment;
+        } else {
+            marble +<span class="red">= </span>decoration * increment;
+        }
+        step++;
+        base -<span class="red">= </span>2;
+    }
+    gold <span class="red">= </span>(base ** 2) * increment;
+
+    console.log(`Stone required: ${Math.ceil(stone)}`);
+    console.log(`Marble required: ${Math.ceil(marble)}`);
+    console.log(`Lapis Lazuli required: ${Math.ceil(lapis)}`);
+    console.log(`Gold required: ${Math.ceil(gold)}`);
+    console.log(`Final pyramid height: ${Math.floor(step * increment)}`);
+}</pre>
+        </div>
+        <div id="tab5" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve([startingYield]) {
+    startingYield <span class="red">= </span>Number(startingYield);
+   <span class="red">let</span> total <span class="red">= </span>0;
+   <span class="red">let</span> c <span class="red">= </span>0;
+
+    while(startingYield ><span class="red">= </span>100) {
+        c++;
+        total +<span class="red">= </span>startingYield;
+        startingYield -<span class="red">= </span>10;
+        total -<span class="red">= </span>26;
+    }
+    total -<span class="red">= </span>26;
+   <span class="red">if</span> (total < 0) total <span class="red">= </span>0;
+
+    console.log(c);
+    console.log(total);
+}</pre>
+        </div>
+        <div id="tab6" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(input) {
+   <span class="red">let</span> max <span class="red">= </span>-Infinity;
+    while (input.length > 0) {
+       <span class="red">let</span> count <span class="red">= </span>Number(input.shift());
+       <span class="red">if</span> (count ><span class="red">= </span>10 || count < 0) continue;
+       <span class="red">let</span> product <span class="red">= </span>1;
+       <span class="red">for</span> (let i <span class="red">= </span>0; i < count; i++) {
+            product *<span class="red">= </span>Number(input[i]);
+        }
+       <span class="red">if</span> (product > max) {
+            max <span class="red">= </span>product;
+        }
+    }
+
+    console.log(max);
+}</pre>
+        </div>
+        <div id="tab7" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(args) {
+   <span class="red">var</span> input,
+        result <span class="red">= </span>[],
+        len,
+        i, j , k,
+        cogWord;
+
+    input <span class="red">= </span>args[0].match(/[a-zA-Z]*/g);
+    input <span class="red">= </span>input.filter(<span class="red">function</span> (a) {
+       <span class="red">return</span> a !=<span class="red">= </span>''
+    });
+
+    len <span class="red">= </span>input.length;
+   <span class="red">if</span> (len < 3) {
+       <span class="red">return</span> 'No';
+    }
+
+   <span class="red">for</span> (i <span class="red">= </span>0; i < len; i +<span class="red">= </span>1) {
+       <span class="red">for</span> (j <span class="red">= </span>0; j < len; j +<span class="red">= </span>1) {
+           <span class="red">for</span> (k <span class="red">= </span>0; k < len; k +<span class="red">= </span>1) {
+               <span class="red">if</span> (i !=<span class="red">= </span>j && j !=<span class="red">= </span>k && i !=<span class="red">= </span>k) {
+                   <span class="red">if</span> (input[i] + input[j] ==<span class="red">= </span>input[k]) {
+                        cogWord <span class="red">= </span>input[i] + '|' + input[j] + '=' + input[k];
+                       <span class="red">if</span> (result.indexOf(cogWord) ==<span class="red">= </span>-1) {
+                            result.push(cogWord);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+   <span class="red">if</span> (result.length < 1) {
+       <span class="red">return</span> 'No';
+    }
+
+   <span class="red">return</span> result.join('\n');
+}
+
+console.log(solve(['java..?|basics/*-+=javabasics']));
+console.log(solve(['Hi, Hi, Hihi']));
+console.log(solve(['Uni(lo,.ve=I love SoftUni (Soft)']));
+console.log(solve(['a a aa a']));
+console.log(solve(['x a ab b aba a hello+java a b aaaaa']));
+console.log(solve(['aa bb bbaa']));
+console.log(solve(['ho hoho']));</pre>
+        </div>
+        <div id="tab8" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> printTableOfNumbers(input) {
+   <span class="red">var</span> startNum <span class="red">= </span>Number(input[0]);
+   <span class="red">var</span> endNum <span class="red">= </span>Number(input[1]);
+    fibNums <span class="red">= </span>calcFibonacciNums(endNum);
+    console.log('<table>');
+    console.log('<tr><th>Num</th><th>Square</th><th>Fib</th></tr>');
+   <span class="red">for</span> (var num <span class="red">= </span>startNum; num <<span class="red">= </span>endNum; num++) {
+       <span class="red">var</span> numSquare <span class="red">= </span>num * num;
+       <span class="red">var</span> isFibonacci <span class="red">= </span>fibNums[num] ? "yes" : "no";
+        printAsTableRow(num, numSquare, isFibonacci);
+    }
+    console.log('</table>');
+
+    <span class="red">function</span> calcFibonacciNums(maxNum) {
+       <span class="red">var</span> fibNums <span class="red">= </span>{ 1: true };
+       <span class="red">var</span> f1 <span class="red">= </span>1;
+       <span class="red">var</span> f2 <span class="red">= </span>1;
+        while (true) {
+           <span class="red">var</span> f3 <span class="red">= </span>f1 + f2;
+           <span class="red">if</span> (f3 > maxNum) {
+               <span class="red">return</span> fibNums;
+            }
+            fibNums[f3] <span class="red">= </span>true;
+            f1 <span class="red">= </span>f2;
+            f2 <span class="red">= </span>f3;
+        }
+    }
+
+    <span class="red">function</span> printAsTableRow() {
+       <span class="red">var</span> tableRow <span class="red">= </span>'<tr>';
+       <span class="red">for</span> (var i in arguments) {
+            tableRow +<span class="red">= </span>'<td>' + arguments[i] + '</td>';
+        }
+        tableRow +<span class="red">= </span>'</tr>';
+        console.log(tableRow);
+    }
+}
+
+// ------------------------------------------------------------
+// Read the input from the console as array and process it
+// Remove all below code before submitting to the judge system!
+// ------------------------------------------------------------
+
+var arr <span class="red">= </span>[];
+require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+}).on('line', <span class="red">function</span> (line) {
+    arr.push(line);
+}).on('close', <span class="red">function</span> () {
+    printTableOfNumbers(arr);
+});
+</pre>
+        </div>
+        <div id="tab9" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> doubleRakiyaNumbers(input) {
+   <span class="red">var</span> startNum <span class="red">= </span>Number(input[0]);
+   <span class="red">var</span> endNum <span class="red">= </span>Number(input[1]);
+    console.log("ul>");
+   <span class="red">for</span> (var num <span class="red">= </span>startNum; num <<span class="red">= </span>endNum; num++) {
+       <span class="red">if</span> (isDoubleRakiyaNum(num)) {
+            console.log("li>" +
+                "<span class='rakiya'>" + num + "</span>" +
+                <!--"<a href="///view.//php?id=" + num +"\">View/a>" +-->
+                "/li>")
+        } else {
+            console.log("li><span class='num'>" + num + "</span>/li>")
+        }
+    }
+    console.log("/ul>");
+
+    <span class="red">function</span> isDoubleRakiyaNum(num) {
+       <span class="red">var</span> numStr <span class="red">= </span>'' + num;
+       <span class="red">var</span> existingPairs <span class="red">= </span>{ };
+       <span class="red">for</span> (var i <span class="red">= </span>1; i < numStr.length; i++) {
+           <span class="red">var</span> pair <span class="red">= </span>numStr.substr(i - 1, 2);
+           <span class="red">if</span> (existingPairs[pair]) {
+               <span class="red">if</span> (i - existingPairs[pair] ><span class="red">= </span>2) {
+                   <span class="red">return</span> true;
+                }
+            } else {
+                existingPairs[pair] <span class="red">= </span>i;
+            }
+        }
+       <span class="red">return</span> false;
+    }
+}</pre>
+        </div>
+        <div id="tab10" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> printPricesTrendsTable(input) {
+   <span class="red">var</span> prices <span class="red">= </span>input.map(Number);
+    console.log("&lt;table>");
+    console.log("&lt;tr>&lt;th>Price&lt;/th>&lt;th>Trend&lt;/th>&lt;/tr>");
+   <span class="red">var</span> prevPrice <span class="red">= </span>undefined;
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < prices.length; i++) {
+       <span class="red">var</span> price <span class="red">= </span>prices[i];
+       <span class="red">var</span> priceStr <span class="red">= </span>price.toFixed(2);
+       <span class="red">if</span> (prevPrice =<span class="red">= </span>undefined || priceStr =<span class="red">= </span>prevPrice) {
+           <span class="red">var</span> trend <span class="red">= </span>"fixed.png";
+        } else<span class="red">if</span> (price < prevPrice) {
+           <span class="red">var</span> trend <span class="red">= </span>"down.png";
+        } else {
+           <span class="red">var</span> trend <span class="red">= </span>"up.png";
+        }
+        console.log("&lt;tr>&lt;td>" + priceStr + "&lt;/td>&lt;td><img src=\"" + trend + "\"/>&lt;/td>&lt;/tr>");
+        prevPrice <span class="red">= </span>priceStr;
+    }
+    console.log("&lt;/table>");
+}
+</pre>
+        </div>
+        <div id="tab-1" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> keepTheChange(input) {
+	var bill <span class="red">= </span>parseFloat(input[0]);
+	var mood <span class="red">= </span>input[1];
+
+	var tip <span class="red">= </span>getTip(bill, mood);
+	console.log(tip.toFixed(2));
+
+    <span class="red">function</span> getTip(bill, mood) {
+       <span class="red">var</span> tipPercent;
+        switch (mood) {
+            case 'drunk':
+               <span class="red">var</span> tip <span class="red">= </span>0.15 * bill;
+               <span class="red">return</span> Math.pow(tip, tip.toString().charAt(0));
+            case 'happy':
+                tipPercent <span class="red">= </span>0.1;
+                break;
+            case 'married':
+                tipPercent <span class="red">= </span>0.0005;
+                break;
+            default:
+                tipPercent <span class="red">= </span>0.05;
+                break;
+        }
+       <span class="red">return</span> tipPercent * bill;
+    }
+}</pre>
+        </div>
+        <div id="tab-2" class="tab">
+        <p></p>
+        <pre><span class="red">function</span> solve(input) {
+   <span class="red">var</span> bladeLengths <span class="red">= </span>input.map(Number);
+    console.log('&lt;table border="1">');
+    console.log('&lt;thead>');
+    console.log('&lt;tr>&lt;th colspan="3">Blades&lt;/th>&lt;/tr>');
+    console.log('&lt;tr>&lt;th>Length [cm]&lt;/th>&lt;th>Type&lt;/th>&lt;th>Application&lt;/th>&lt;/tr>');
+    console.log('&lt;/thead>');
+    console.log('&lt;tbody>');
+
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < bladeLengths.length; i++) {
+        bladeLengths[i] <span class="red">= </span>Math.floor(bladeLengths[i]);
+    }
+
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < bladeLengths.length; i++) {
+       <span class="red">var</span> bladeLength <span class="red">= </span>bladeLengths[i];
+       <span class="red">if</span>(bladeLength > 10) {
+           <span class="red">var</span> application <span class="red">= </span>'';
+            switch(remainderAfterDivisionWith5(bladeLength)) {
+                case 1:
+                    application <span class="red">= </span>'blade';
+                    break;
+                case 2:
+                    application <span class="red">= </span>'quite a blade';
+                    break;
+                case 3:
+                    application <span class="red">= </span>'pants-scraper';
+                    break;
+                case 4:
+                    application <span class="red">= </span>'frog-butcher';
+                    break;
+                case 0:
+                    application <span class="red">= </span>'*rap-poker';
+                    break;
+                default:
+                    application <span class="red">= </span>'ERROR';
+            }
+
+           <span class="red">var</span> type <span class="red">= </span>'';
+           <span class="red">if</span>(bladeLength > 40) {
+                type <span class="red">= </span>'sword';
+            } else{
+                type <span class="red">= </span>'dagger';
+            }
+
+            console.log('<tr><td>' + bladeLength + '</td><td>' + type + '</td><td>' + application + '</td></tr>');
+        }
+    }
+    console.log('&lt;/tbody>');
+    console.log('&lt;/table>');
+
+    <span class="red">function</span> remainderAfterDivisionWith5(bladeLength) {
+       <span class="red">var</span> remainder <span class="red">= </span>bladeLength % 5;
+       <span class="red">return</span> remainder;
+    }
+}</pre>
+      </div>
+        <div id="tab-3" class="tab">
+        <p></p>
+        <pre><span class="red">function</span> solve(args) {
+   <span class="red">var</span> item,
+        strDate,
+        dateParts,
+        date,
+        min <span class="red">= </span>new Date("January 1, 1900"),
+        breakPoint <span class="red">= </span>new Date("May 25, 1973"),
+        max <span class="red">= </span>new Date("January 1, 2015"),
+        dateArray <span class="red">= </span>[],
+        hasHater <span class="red">= </span>false,
+        hasFan <span class="red">= </span>false;
+
+   <span class="red">for</span> (item in args) {
+        strDate <span class="red">= </span>args[item];
+        dateParts <span class="red">= </span>strDate.split('.');
+        date <span class="red">= </span>new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+       <span class="red">if</span> (date > min && date < max) {
+           <span class="red">if</span> (date < breakPoint) {
+                hasHater <span class="red">= </span>true;
+            }
+           <span class="red">if</span> (date ><span class="red">= </span>breakPoint) {
+                hasFan <span class="red">= </span>true;
+            }
+            dateArray.push(date);
+        }
+    }
+
+   <span class="red">if</span> (!dateArray.length) {
+        console.log('No result');
+       <span class="red">return</span>;
+    }
+
+    dateArray.sort(<span class="red">function</span>(a, b) {
+       <span class="red">return</span> a.getTime() - b.getTime();
+    });
+   <span class="red">if</span> (hasFan) {
+        printResult(dateArray[dateArray.length - 1], 'fan');
+    }
+   <span class="red">if</span> (hasHater) {
+        printResult(dateArray[0], 'hater');
+    }
+
+    <span class="red">function</span> printResult(date, type) {
+        console.log('The biggest ' + type + ' of ewoks was born on ' + date.toDateString());
+    }
+
+}</pre>
+      </div>
+        <div id="tab-4" class="tab">
+        <p></p>
+        <pre><span class="red">function</span> solve (input) {
+   <span class="red">var</span> output <span class="red">= </span>"";
+   <span class="red">for</span> (var row <span class="red">= </span>0; row < input.length; row++) {
+       <span class="red">var</span> tempRow <span class="red">= </span>input[row].split(' ');
+       <span class="red">var</span> car <span class="red">= </span>tempRow[0];
+       <span class="red">var</span> fuel <span class="red">= </span>tempRow[1];
+       <span class="red">var</span> trace <span class="red">= </span>tempRow[2];
+       <span class="red">var</span> baggage <span class="red">= </span>parseFloat(tempRow[3]);
+       <span class="red">var</span> finalConsumption <span class="red">= </span>calculateFinalConsumption(trace, fuel, baggage);
+        finalConsumption <span class="red">= </span>Math.round(finalConsumption);
+
+        output +<span class="red">= </span>car + ' ' + fuel + ' ' + trace + ' ' + finalConsumption + "\n";
+    }
+    console.log(output);
+
+    <span class="red">function</span> getConsumptionByFuel(fuelType) {
+       <span class="red">var</span> BASE_CONSUMPTION <span class="red">= </span>10;
+       <span class="red">if</span>(fuelType ==<span class="red">= </span>'petrol') {
+           <span class="red">return</span> 1 * BASE_CONSUMPTION;
+        } else<span class="red">if</span> (fuelType ==<span class="red">= </span>'diesel') {
+           <span class="red">return</span> 0.8 * BASE_CONSUMPTION;
+        } else<span class="red">if</span> (fuelType ==<span class="red">= </span>'gas') {
+           <span class="red">return</span> 1.2 * BASE_CONSUMPTION;
+        }
+    }
+
+    <span class="red">function</span> getOverFuelConsumption (baggage) {
+       <span class="red">var</span> overFuel <span class="red">= </span>0.01 * baggage;
+       <span class="red">return</span> overFuel;
+    }
+
+    <span class="red">function</span> calculateFinalConsumption (trace, fuelType, baggage) {
+       <span class="red">var</span> averageConsumption <span class="red">= </span>getConsumptionByFuel(fuelType) + getOverFuelConsumption(baggage);
+       <span class="red">if</span> (trace ==<span class="red">= </span>'1') {
+           <span class="red">var</span> consumptionInSnow <span class="red">= </span>calculateOverConsumptionInSnow(10, averageConsumption);
+           <span class="red">var</span> calculatedConsumption <span class="red">= </span>consumptionInSnow + (averageConsumption * (110 * 0.01))
+        } else {
+           <span class="red">var</span> consumptionInSnow <span class="red">= </span>calculateOverConsumptionInSnow(30, averageConsumption);
+           <span class="red">var</span> calculatedConsumption <span class="red">= </span>consumptionInSnow + (averageConsumption * (95 * 0.01))
+        }
+
+       <span class="red">return</span> calculatedConsumption;
+    }
+
+    <span class="red">function</span> calculateOverConsumptionInSnow (km, averageConsumption) {
+       <span class="red">return</span> (0.3 * averageConsumption) * (km * 0.01);
+    }
+}
+</pre>
+      </div>
+        <div id="tab-5" class="tab">
+        <p></p>
+        <pre><span class="red">function</span> calculateCoins(input){
+
+   <span class="red">var</span> coins <span class="red">= </span>0,
+        bronzeCoins <span class="red">= </span>0,
+        silverCoins <span class="red">= </span>0,
+        goldCoins <span class="red">= </span>0;
+
+
+   <span class="red">for</span>(var i<span class="red">= </span>0; i < input.length; i++){
+       <span class="red">var</span> tokens <span class="red">= </span>input[i].split(' ');
+       <span class="red">var</span> type <span class="red">= </span>tokens[0].toLowerCase();
+       <span class="red">var</span> value <span class="red">= </span>tokens[1];
+       <span class="red">if</span>(value > 0 && isInt(value) && type ==<span class="red">= </span>'coin' ){
+            coins +<span class="red">= </span>parseInt(value);
+        }
+    }
+
+    goldCoins +<span class="red">= </span>Math.floor(coins/100);
+    coins <span class="red">= </span>coins - goldCoins*100;
+    silverCoins +<span class="red">= </span>Math.floor(coins/10);
+    bronzeCoins +<span class="red">= </span>coins - silverCoins*10;
+
+    console.log('gold : ' + goldCoins);
+    console.log('silver : ' + silverCoins);
+    console.log('bronze : ' + bronzeCoins);
+
+
+    <span class="red">function</span> isInt(n){
+       <span class="red">return</span>  n % 1 ==<span class="red">= </span>0;
+    }
+}
+
+
+calculateCoins(['Coin 12222','coin 2', 'coin 5', 'coin 10', 'coin 20', 'coin 50', 'coin 100', 'coin 200', 'coin 500', 'cigars 1']);
+console.log();
+calculateCoins(['Coin one', 'coin two', 'coin five', 'coin ten', 'coin twenty', 'coin fifty', 'coin hundred', 'cigars 1']);
+console.log();
+calculateCoins(['coin 1', 'coin two', 'coin 5', 'coin 10.50', 'coin 20', 'coin 50', 'coin hundred', 'cigars 1']);</pre>
+      </div>
+        <div id="tab-6" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> kitodarTheMiner(input) {
+   <span class="red">let</span> silver=0;
+   <span class="red">let</span> gold =0;
+   <span class="red">let</span> diamonds <span class="red">= </span>0;
+
+   <span class="red">for</span>(let line of input){
+       <span class="red">let</span> tokens <span class="red">= </span>line.split(" - ");
+
+       <span class="red">let</span> isValidMine <span class="red">= </span>tokens[0].trim().split(" ")[0] =<span class="red">= </span>"mine";
+       <span class="red">if</span>(tokens.length =<span class="red">= </span>2) {
+
+           <span class="red">if</span> (isValidMine) {
+               <span class="red">let</span> subTokens <span class="red">= </span>tokens[1].split(":");
+
+               <span class="red">if</span>(subTokens.length =<span class="red">= </span>2) {
+                   <span class="red">let</span> oreType <span class="red">= </span>subTokens[0].trim();
+                   <span class="red">let</span> quantity <span class="red">= </span>parseInt(subTokens[1].trim()) ? Number(subTokens[1].trim()) : 0;
+
+                    switch (oreType) {
+                        case "gold":
+                            gold +<span class="red">= </span>quantity;
+                            break;
+                        case "silver":
+                            silver +<span class="red">= </span>quantity;
+                            break;
+                        case "diamonds":
+                            diamonds +<span class="red">= </span>quantity;
+                            break;
+                    }
+                }
+            }
+        }
+    }
+
+    console.log(`*Silver: ${silver}`);
+    console.log(`*Gold: ${gold}`);
+    console.log(`*Diamonds: ${diamonds}`);</pre>
+        </div>
+        <div id="tab-7" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(input){
+   <span class="red">var</span> i, currentLine, examPoints, exam,
+        bonuses, grade, output <span class="red">= </span>"", counter <span class="red">= </span>0,
+        targetedCourse <span class="red">= </span>input[input.length-1].trim(),
+        sumOfGrades <span class="red">= </span>0;
+
+   <span class="red">for</span> (i <span class="red">= </span>0; i < input.length-1; i++) {
+        currentLine <span class="red">= </span>input[i].split(/\s+/).filter(<span class="red">function</span>(e){return e});
+       <span class="red">if</span>(currentLine[1] ==<span class="red">= </span>targetedCourse){
+            counter++;
+            sumOfGrades +<span class="red">= </span>parseInt(currentLine[2]);
+        }
+
+        examPoints <span class="red">= </span>parseInt(currentLine[2]);
+       <span class="red">if</span>(examPoints < 100) {
+            output +<span class="red">= </span>currentLine[0] + ' failed at "' + currentLine[1] + '"\n';
+            continue;
+        }
+
+        exam <span class="red">= </span>examPoints * 0.2;
+        bonuses <span class="red">= </span>parseFloat(currentLine[3]);
+        grade <span class="red">= </span>(((exam + bonuses) / 80) * 4) + 2;
+       <span class="red">if</span>(grade > 6.00) {
+            grade <span class="red">= </span>6.00;
+        }
+        output +<span class="red">= </span>currentLine[0] +
+            ': Exam' -  + currentLine[1] +
+            '; Points - ' + parseFloat((exam + bonuses).toFixed(2)) +
+            '; Grade - ' + (grade).toFixed(2) + '\n';
+    }
+    output +<span class="red">= </span>'" + targetedCourse + "' + ' average points -> ' + parseFloat((sumOfGrades/counter).toFixed(2));
+    console.log(output);
+}</pre>
+        </div>
+        <div id="tab-8" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(args) {
+    "use strict";
+
+    const singleMedenkaDmg <span class="red">= </span>60;
+
+   <span class="red">let</span> naskorDamageDone <span class="red">= </span>0;
+   <span class="red">let</span> vitkorDamageDone <span class="red">= </span>0;
+
+   <span class="red">let</span> naskorPreviousAttackDmg <span class="red">= </span>-1;
+   <span class="red">let</span> naskorStreak <span class="red">= </span>0;
+
+   <span class="red">let</span> vitkorPreviousAttackDmg <span class="red">= </span>-1;
+   <span class="red">let</span> vitkorStreak <span class="red">= </span>0;
+
+   <span class="red">for</span> (let line of args) {
+       <span class="red">let</span> inputInfo <span class="red">= </span>line.split(/\s+/);
+       <span class="red">let</span> medenkaCount <span class="red">= </span>+inputInfo[0];
+       <span class="red">let</span> medenkaType <span class="red">= </span>inputInfo[1];
+
+       <span class="red">let</span> medenkaDmg <span class="red">= </span>medenkaCount * singleMedenkaDmg;
+       <span class="red">if</span> (medenkaType ==<span class="red">= </span>'white') {
+           <span class="red">if</span> (medenkaDmg ==<span class="red">= </span>vitkorPreviousAttackDmg) {
+                vitkorStreak++;
+
+               <span class="red">if</span> (vitkorStreak =<span class="red">= </span>2) {
+                    medenkaDmg *<span class="red">= </span>2.75;
+                    vitkorStreak <span class="red">= </span>0;
+                }
+            } else {
+                vitkorPreviousAttackDmg <span class="red">= </span>medenkaDmg;
+                vitkorStreak <span class="red">= </span>1;
+            }
+
+            vitkorDamageDone +<span class="red">= </span>medenkaDmg;
+        } else {
+           <span class="red">if</span> (medenkaDmg ==<span class="red">= </span>naskorPreviousAttackDmg) {
+                naskorStreak++;
+
+               <span class="red">if</span> (naskorStreak =<span class="red">= </span>5) {
+                    medenkaDmg *<span class="red">= </span>4.5;
+                    naskorStreak <span class="red">= </span>0;
+                }
+            } else {
+                naskorPreviousAttackDmg <span class="red">= </span>medenkaDmg;
+                naskorStreak <span class="red">= </span>1;
+            }
+
+            naskorDamageDone +<span class="red">= </span>medenkaDmg;
+        }
+    }
+
+   <span class="red">let</span> winner <span class="red">= </span>vitkorDamageDone > naskorDamageDone ? 'Vitkor' : 'Naskor';
+   <span class="red">let</span> damage <span class="red">= </span>vitkorDamageDone > naskorDamageDone ? vitkorDamageDone : naskorDamageDone;
+
+    console.log('Winner - ' + winner);
+    console.log('Damage - ' + damage);
+}
+
+solve([
+    '2 dark medenkas',
+    '1 white medenkas',
+    '2 dark medenkas',
+    '2 dark medenkas',
+    '15 white medenkas',
+    '2 dark medenkas',
+    '2 dark medenkas'
+]);</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br /><br />
+  <div class="main">
+    <h2>Second Exercise</h2>
+    <div class="tabs animated-fade">
+      <ul class="tab-links">
+        <li class="active"><a href="#tab11">Gladiator Inventory</a></li>
+        <li><a href="#tab22">Air Pollution</a></li>
+        <li><a href="#tab33">Expedition </a></li>
+        <li><a href="#tab44">Jan's Notation  </a></li>
+        <li><a href="#tab55">Build a Wall</a></li>
+        <li><a href="#tab66">Rosetta Stone  </a></li>
+        <li><a href="#tab77">Longest Odd / Even Sequence   </a></li>
+        <li><a href="#tab88">Reveal Triangles </a></li>
+        <li><a href="#tab99">String Matrix Rotation</a></li>
+        <li><a href="#tab12">Tetris Figures </a></li>
+        <li><a href="#tab13">The Numbers </a></li>
+        <li><a href="#tab14">X-Removal </a></li>
+        <li><a href="#tab15">Plus Remove </a></li>
+        <li><a href="#tab16">Parachute </a></li>
+        <li><a href="#tab17">Flea Racing </a></li>
+        <li><a href="#tab18">The Captain Obvious Tribulation </a></li>
+        <li><a href="#tab19"> Filter Matrix </a></li>
+        <li><a href="#tab20"> Bunny Kill  </a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="tab11" class="tab active">
+          <p></p>
+          <pre><span class="red">function</span> solve(arr) {
+   <span class="red">let</span> inventory <span class="red">= </span>arr.shift().split(' ')
+    loop:
+   <span class="red">for</span> (const string of arr) {
+       <span class="red">let</span> [command, item] <span class="red">= </span>string.split(' ')
+        switch (command) {
+            case 'Buy':
+               <span class="red">if</span> (!inventory.includes(item)) {
+                    inventory.push(item)
+                }
+                break
+            case'Trash':
+               <span class="red">let</span> index1 <span class="red">= </span>inventory.indexOf(item)
+               <span class="red">if</span> (index1 > -1) {
+                    inventory.splice(index1, 1)
+                }
+                break
+            case 'Repair':
+               <span class="red">let</span> index2 <span class="red">= </span>inventory.indexOf(item)
+               <span class="red">if</span> (index2 > -1) {
+                   <span class="red">let</span> element <span class="red">= </span>inventory.splice(index2, 1)
+                    inventory.push(element[0])
+                }
+                break
+            case 'Upgrade':
+               <span class="red">let</span> [realItem, upgrade] <span class="red">= </span>item.split('-')
+               <span class="red">let</span> index <span class="red">= </span>inventory.indexOf(realItem)
+               <span class="red">if</span> (index > -1) {
+                    inventory.splice(index + 1, 0, realItem + ':' + upgrade)
+                }
+                break
+            case 'Fight!':
+                console.log(inventory.join(' '))
+                break loop
+        }
+    }
+}
+
+
+solve(['SWORD Shield Spear',
+    'Buy Bag', 'Trash Shield', 'Repair Spear', 'Upgrade SWORD-Steel', 'Fight!'])
+solve(['SWORD Shield Spear',
+   'Trash Bow', 'Repair Shield', 'Upgrade Helmet-V', 'Fight!'])</pre>
+        </div>
+        <div id="tab22" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> test(colums, comands) {
+
+   <span class="red">let</span> matrix <span class="red">= </span>[];
+   <span class="red">for</span> (let r <span class="red">= </span>0; r < colums.length; r++) {
+       <span class="red">let</span> line <span class="red">= </span>colums[r].split(' ').map(Number);
+        matrix.push(line);
+    }
+
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < comands.length; i++) {
+       <span class="red">let</span> first <span class="red">= </span>comands[i].split(' ');
+
+       <span class="red">let</span> command <span class="red">= </span>first[0];
+       <span class="red">let</span> index <span class="red">= </span>parseInt(first[1]);
+
+       <span class="red">if</span> (command ==<span class="red">= </span>"breeze") {
+           <span class="red">for</span> (var j <span class="red">= </span>0; j < 5; j++) {
+               <span class="red">for</span> (var k <span class="red">= </span>0; k < 5; k++) {
+                   <span class="red">if</span> (j ==<span class="red">= </span>index) {
+                        matrix[j][k] <span class="red">= </span>matrix[j][k] - 15;
+                       <span class="red">if</span> (matrix[j][k] < 0) {
+                            matrix[j][k] <span class="red">= </span>0;
+                        }
+                    }
+                }
+            }
+        }
+        else<span class="red">if</span> (command ==<span class="red">= </span>"gale") {
+           <span class="red">for</span> (let j1 <span class="red">= </span>0; j1 < 5; j1++) {
+               <span class="red">for</span> (let k1 <span class="red">= </span>0; k1 < 5; k1++) {
+                   <span class="red">if</span> (k1 ==<span class="red">= </span>index) {
+                        matrix[j1][k1] <span class="red">= </span>matrix[j1][k1] - 20;
+                       <span class="red">if</span> (matrix[j1][k1] < 0) {
+                            matrix[j1][k1] <span class="red">= </span>0;
+                        }
+                    }
+                }
+            }
+        }
+        else<span class="red">if</span> (command ==<span class="red">= </span>"smog") {
+           <span class="red">for</span> (let f <span class="red">= </span>0; f < 5; f++) {
+               <span class="red">for</span> (let z <span class="red">= </span>0; z < 5; z++) {
+                    matrix[f][z] <span class="red">= </span>matrix[f][z] + index;
+                }
+            }
+        }
+    }
+   <span class="red">let</span> counter <span class="red">= </span>0;
+   <span class="red">let</span> print <span class="red">= </span>[];
+
+   <span class="red">for</span> (let row <span class="red">= </span>0; row < 5; row++) {
+       <span class="red">for</span> (let col <span class="red">= </span>0; col < 5; col++) {
+           <span class="red">if</span> (matrix[row][col] ><span class="red">= </span>50) {
+                print.push(row);
+                print.push(col);
+                counter++;
+            }
+        }
+    }
+   <span class="red">if</span> (counter > 0) {
+
+       <span class="red">let</span> str <span class="red">= </span>"";
+       <span class="red">for</span> (let da <span class="red">= </span>0; da < print.length; da +<span class="red">= </span>2) {
+            str +<span class="red">= </span>'[' + print[da] + '-' + print[da + 1] + '], ';
+        }
+        str <span class="red">= </span>str.slice(0, -2);
+        console.log("Polluted areas: " + str)
+
+    } else {
+        console.log("No polluted areas");
+    }
+}
+
+test([
+        "5 7 72 14 4",
+        "41 35 37 27 33",
+        "23 16 27 42 12",
+        "2 20 28 39 14",
+        "16 34 31 10 24",
+    ],
+    ["breeze 1", "gale 2", "smog 25"]
+);
+test([
+        "5 7 3 28 32",
+        "41 12 49 30 33",
+        "3 16 20 42 12",
+        "2 20 10 39 14",
+        "7 34 4 27 24",
+    ],
+    [
+        "smog 11", "gale 3",
+        "breeze 1", "smog 2"
+    ]
+);
+test([
+        "5 7 2 14 4",
+        "21 14 2 5 3",
+        "3 16 7 42 12",
+        "2 20 8 39 14",
+        "7 34 1 10 24",
+    ],
+    ["breeze 1", "gale 2", "smog 35"]
+);</pre>
+        </div>
+        <div id="tab33" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> expedition(primary, secondary, targets, startingPoint) {
+                    <span class="red">let</span> steps <span class="red">= </span>1;
+                    <span class="red">let</span> primaryMatrixRows <span class="red">= </span>primary.length;
+                    <span class="red">let</span> primaryMatrixCols <span class="red">= </span>primary[0].length;
+                    <span class="red">let</span> secondaryMatrixRows <span class="red">= </span>secondary.length;
+                    <span class="red">let</span> secondaryMatrixCols <span class="red">= </span>secondary[0].length;
+
+                    <span class="red">for</span> (let target of targets) {
+                     modifyPrimary(target);
+                     }
+
+                    <span class="red">let</span> currentPosition <span class="red">= </span>[startingPoint[0], startingPoint[1]];
+                    <span class="red">let</span> previousDirection;
+
+                     while (true) {
+                    <span class="red">if</span> (currentPosition[0] + 1 < primaryMatrixRows && primary[currentPosition[0] + 1][currentPosition[1]] =<span class="red">= </span>0 && previousDirection !<span class="red">= </span>"up") {
+          currentPosition <span class="red">= </span>[currentPosition[0] + 1, currentPosition[1]];
+          previousDirection <span class="red">= </span>"down";
+          } else<span class="red">if</span> (currentPosition[1] + 1 < primaryMatrixCols && primary[currentPosition[0]][currentPosition[1] + 1] =<span class="red">= </span>0 && previousDirection !<span class="red">= </span>"left") {
+          currentPosition <span class="red">= </span>[currentPosition[0], currentPosition[1] + 1];
+          previousDirection <span class="red">= </span>"right";
+          } else<span class="red">if</span> (currentPosition[0] > 0 && primary[currentPosition[0] - 1][currentPosition[1]] =<span class="red">= </span>0 && previousDirection !<span class="red">= </span>"down") {
+          currentPosition <span class="red">= </span>[currentPosition[0] - 1, currentPosition[1]];
+          previousDirection <span class="red">= </span>"up";
+          } else<span class="red">if</span> (currentPosition[1] > 0 && primary[currentPosition[0]][currentPosition[1] - 1] =<span class="red">= </span>0 && previousDirection !<span class="red">= </span>"right") {
+          currentPosition <span class="red">= </span>[currentPosition[0], currentPosition[1] - 1];
+          previousDirection <span class="red">= </span>"left";
+          } else {
+          break;
+          }
+          steps++;
+          }
+
+          console.log(steps);
+          definePosition(currentPosition);
+
+          <span class="red">function</span> modifyPrimary(coordinates) {
+         <span class="red">let</span> row <span class="red">= </span>Number(coordinates[0]);
+         <span class="red">let</span> col <span class="red">= </span>Number(coordinates[1]);
+         <span class="red">for</span> (let i <span class="red">= </span>0; i < secondaryMatrixRows; i++) {
+         <span class="red">if</span> (i + row < primaryMatrixRows) {
+         <span class="red">for</span> (let j <span class="red">= </span>0; j < secondaryMatrixCols; j++) {
+         <span class="red">if</span> (primary[i + row][j + col] !<span class="red">= </span>undefined && secondary[i][j] =<span class="red">= </span>1) {
+          primary[i + row][j + col] <span class="red">= </span>primary[i + row][j + col] =<span class="red">= </span>0 ? 1 : 0;
+          }
+          }
+          }
+          }
+          }
+
+          <span class="red">function</span> definePosition(currentPosition) {
+         <span class="red">let</span> currentRow <span class="red">= </span>currentPosition[0];
+         <span class="red">let</span> currentCol <span class="red">= </span>currentPosition[1];
+         <span class="red">if</span> (currentRow =<span class="red">= </span>0) {
+          console.log("Top");
+          } else<span class="red">if</span> (currentRow =<span class="red">= </span>primaryMatrixRows - 1) {
+          console.log("Bottom");
+          } else<span class="red">if</span> (currentCol =<span class="red">= </span>0) {
+          console.log("Left");
+          } else<span class="red">if</span> (currentCol =<span class="red">= </span>primaryMatrixCols - 1) {
+          console.log("Right");
+          } else<span class="red">if</span> (currentRow < primaryMatrixRows / 2 && currentCol ><span class="red">= </span>primaryMatrixCols / 2) {
+          console.log("Dead end 1");
+          } else<span class="red">if</span> (currentRow < primaryMatrixRows / 2 && currentCol < primaryMatrixCols / 2) {
+          console.log("Dead end 2");
+          } else<span class="red">if</span> (currentRow ><span class="red">= </span>primaryMatrixRows / 2 && currentCol < primaryMatrixCols / 2) {
+          console.log("Dead end 3");
+          } else<span class="red">if</span> (currentRow ><span class="red">= </span>primaryMatrixRows / 2 && currentCol ><span class="red">= </span>primaryMatrixCols / 2) {
+          console.log("Dead end 4");
+          }
+          }
+          }</pre>
+        </div>
+        <div id="tab44" class="tab">
+          <p></p>
+        <pre><span class="red">function</span> solve(expression) {
+   <span class="red">let</span> stack <span class="red">= </span>[];
+   <span class="red">let</span> instructionSet <span class="red">= </span>{
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+        '*': (a, b) => a * b,
+        '/': (a, b) => a / b,
+    };
+
+   <span class="red">for</span> (let i of expression) {
+       <span class="red">let</span> instruction <span class="red">= </span>instructionSet[i];
+       <span class="red">if</span> (instruction ==<span class="red">= </span>undefined) {
+            stack.push(i);
+        } else {
+           <span class="red">let</span> [reg2, reg1] <span class="red">= </span>[stack.pop(), stack.pop()];
+           <span class="red">if</span> (reg1 ==<span class="red">= </span>undefined || reg2 ==<span class="red">= </span>undefined) {
+                console.log('Error: not enough operands!');
+               <span class="red">return</span>;
+            }
+            stack.push(instruction(reg1, reg2));
+        }
+    }
+
+   <span class="red">if</span> (stack.length > 1) {
+        console.log('Error: too many operands!');
+    } else {
+        console.log(stack.pop());
+    }
+}</pre>
+        </div>
+        <div id="tab55" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(wall) {
+    wall <span class="red">= </span>wall.map(Number);
+   <span class="red">let</span> complete <span class="red">= </span>false;
+   <span class="red">let</span> log <span class="red">= </span>[];
+
+    while (!complete) {
+       <span class="red">let</span> crete <span class="red">= </span>0;
+        complete <span class="red">= </span>true;
+       <span class="red">for</span> (let i <span class="red">= </span>0; i < wall.length; i++) {
+           <span class="red">if</span> (wall[i] < 30) {
+                wall[i] +<span class="red">= </span>1;
+                crete +<span class="red">= </span>195;
+                complete <span class="red">= </span>false;
+            }
+        }
+       <span class="red">if</span> (!complete) log.push(crete);
+    }
+    console.log(log.join(', '));
+    console.log(log.reduce((a, b) => a + b, 0) * 1900 + ' pesos');
+}</pre>
+        </div>
+        <div id="tab66" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(input) {
+    // Get size of code
+   <span class="red">let</span> n <span class="red">= </span>Number(input.shift());
+
+    // Initialize code matrix
+   <span class="red">let</span> code <span class="red">= </span>[];
+   <span class="red">for</span> (let i <span class="red">= </span>0; i < n; i++) {
+        code.push(input.shift().split(' ').map(Number));
+    }
+
+    // Initialize message matrix
+   <span class="red">let</span> matrix <span class="red">= </span>[];
+   <span class="red">for</span> (let row of input) {
+        matrix.push(row.split(' ').map(Number));
+    }
+
+    // Initialize decoded message
+   <span class="red">let</span> result <span class="red">= </span>'';
+
+   <span class="red">for</span> (let row <span class="red">= </span>0; row < matrix.length; row++) {
+       <span class="red">for</span> (let col <span class="red">= </span>0; col< matrix[0].length; col++) {
+           <span class="red">let</span> current <span class="red">= </span>matrix[row][col];
+           <span class="red">let</span> modifier <span class="red">= </span>code[row % code.length][col % code[0].length];
+            result +<span class="red">= </span>String.fromCharCode(((current + modifier) % 27) + 64);
+        }
+    }
+
+    result <span class="red">= </span>result.replace(/@/g, ' ');
+    console.log(result);
+}</pre>
+        </div>
+        <div id="tab77" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(args) {
+   <span class="red">var</span> input,
+        maxOddEven <span class="red">= </span>0,
+        len,
+        index,
+        count,
+        expected;
+
+
+    input <span class="red">= </span>args[0].split(/[\(\)\s]+/g).filter(<span class="red">function</span> (a) {
+       <span class="red">return</span> !(a =<span class="red">= </span>"")
+    });
+
+    len <span class="red">= </span>input.length;
+   <span class="red">if</span> (len ==<span class="red">= </span>1) {
+       <span class="red">return</span> '1';
+    }
+
+    input.forEach(<span class="red">function</span> (el, indx, arr) {
+       <span class="red">if</span> (+el !=<span class="red">= </span>0) {
+            arr[indx] <span class="red">= </span>(+el % 2 !=<span class="red">= </span>0);
+        }
+    });
+
+    count <span class="red">= </span>1;
+    expected <span class="red">= </span>input[0] !=<span class="red">= </span>'0' ? !input[0] : '0';
+
+   <span class="red">for</span> (index <span class="red">= </span>1; index < len; index +<span class="red">= </span>1) {
+       <span class="red">if</span> (expected ==<span class="red">= </span>'0' && input[index] !=<span class="red">= </span>'0') {
+            expected <span class="red">= </span>input[index];
+        }
+
+
+       <span class="red">if</span> (input[index] ==<span class="red">= </span>expected || input[index] ==<span class="red">= </span>'0') {
+            count +<span class="red">= </span>1;
+           <span class="red">if</span> (expected !=<span class="red">= </span>'0') {
+                expected <span class="red">= </span>!expected;
+            }
+        } else {
+           <span class="red">if</span> (count > maxOddEven) {
+                maxOddEven <span class="red">= </span>count;
+
+            }
+
+            // hack to solve problem when last number in a sequence is '0'
+            // it is hack as we modify the index of<span class="red">for</span>-loop, which is not good
+           <span class="red">if</span>(index > 0 && input[index-1] ==<span class="red">= </span>'0'){
+                expected <span class="red">= </span>'0';
+                index -<span class="red">= </span>1;
+            } else {
+                expected <span class="red">= </span>!input[index];
+            }
+
+            count <span class="red">= </span>1;
+        }
+    }
+
+   <span class="red">if</span> (count > maxOddEven) {
+        maxOddEven <span class="red">= </span>count;
+    }
+
+   <span class="red">return</span> maxOddEven + "";
+}
+//
+console.log(solve(['(3) (22) (-18) (55) (44) (3) (21)']));
+console.log(solve(['(1)(2)(3)(4)(5)(6)(7)(8)(9)(10)']));
+console.log(solve(['  ( 2 )  ( 33 ) (1) (4)   (  -1  ) ']));
+console.log(solve(['(102)(103)(0)(105)  (107)(1)']));
+console.log(solve(['(2) (2) (2) (2) (2)']));
+console.log(solve(['(0) (0) (0) (0) (0)']));
+console.log(solve(['(0) (0) (5) (0) (0) (5)']));
+
+// problem with the last number in a sequence to be '0'
+console.log(solve(['(102)(103)(0)(106)  (107)(108)(109)']));</pre>
+        </div>
+        <div id="tab88" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> revealTriangles(input) {
+    // Initialize the output as char[][], holding the input chars
+   <span class="red">var</span> output <span class="red">= </span>[];
+   <span class="red">for</span> (var row <span class="red">= </span>0; row < input.length; row++) {
+        output[row] <span class="red">= </span>input[row].split('');
+    }
+
+    // Replace all triangles with '*' (with overlapping)
+   <span class="red">for</span> (var row <span class="red">= </span>1; row < input.length; row++) {
+       <span class="red">var</span> maxCol <span class="red">= </span>Math.min(
+            input[row - 1].length - 2,
+            input[row].length - 3);
+       <span class="red">for</span> (var col <span class="red">= </span>0; col <<span class="red">= </span>maxCol; col++) {
+           <span class="red">var</span> a <span class="red">= </span>input[row][col];
+           <span class="red">var</span> b <span class="red">= </span>input[row][col + 1];
+           <span class="red">var</span> c <span class="red">= </span>input[row][col + 2];
+           <span class="red">var</span> d <span class="red">= </span>input[row - 1][col + 1];
+           <span class="red">if</span> (a =<span class="red">= </span>b && b =<span class="red">= </span>c & c =<span class="red">= </span>d) {
+                // Triangle found --> fill it with '*'
+                output[row][col] <span class="red">= </span>'*';
+                output[row][col + 1] <span class="red">= </span>'*';
+                output[row][col + 2] <span class="red">= </span>'*';
+                output[row - 1][col + 1] <span class="red">= </span>'*';
+            }
+        }
+    }
+
+    // Print the result
+   <span class="red">for</span> (var row <span class="red">= </span>0; row < input.length; row++) {
+        console.log(output[row].join(''));
+    }
+}</pre>
+        </div>
+        <div id="tab99" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> matrixRotation(input) {
+    // Read and parse the rotation command
+   <span class="red">var</span> command <span class="red">= </span>input[0];
+   <span class="red">var</span> degrees <span class="red">= </span>command.replace(/[^0-9]/g, '') % 360;
+
+    // Create the matrix of chars<span class="red">for</span> rotation
+   <span class="red">var</span> matrix <span class="red">= </span>[];
+   <span class="red">var</span> len <span class="red">= </span>0;
+   <span class="red">for</span> (var i <span class="red">= </span>1; i < input.length; i++) {
+       <span class="red">var</span> line <span class="red">= </span>input[i];
+        matrix.push(line.split(''));
+       <span class="red">if</span> (line.length > len) {
+            len <span class="red">= </span>line.length;
+        }
+    }
+
+    // Pad the shorter lines with spaces at the end
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < matrix.length; i++) {
+        while (matrix[i].length < len) {
+            matrix[i].push(' ');
+        }
+    }
+
+    //console.log(matrix);
+
+    // Rotate the matrix to 90 degrees (degrees / 90) times
+    while (degrees > 0) {
+        matrix <span class="red">= </span>rotate90degrees(matrix);
+        degrees -<span class="red">= </span>90;
+    }
+
+    //console.log(matrix);
+
+   <span class="red">for</span> (var i in matrix) {
+        console.log(matrix[i].join(''));
+    }
+
+    <span class="red">function</span> rotate90degrees(matrix) {
+       <span class="red">var</span> maxRow <span class="red">= </span>matrix.length - 1;
+       <span class="red">var</span> maxCol <span class="red">= </span>matrix[0].length - 1;
+       <span class="red">var</span> result <span class="red">= </span>new Array(maxCol);
+       <span class="red">for</span> (var col <span class="red">= </span>0; col <<span class="red">= </span>maxCol; col++) {
+            result[col] <span class="red">= </span>new Array(maxRow);
+           <span class="red">for</span> (var row <span class="red">= </span>0; row <<span class="red">= </span>maxRow; row++) {
+                result[col][maxRow - row] <span class="red">= </span>matrix[row][col];
+            }
+        }
+       <span class="red">return</span> result;
+    }
+}</pre>
+        </div>
+        <div id="tab12" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> countTetrisFigures(gameField) {
+   <span class="red">var</span> figureI <span class="red">= </span>[
+        "o",
+        "o",
+        "o",
+        "o",
+    ];
+   <span class="red">var</span> figureL <span class="red">= </span>[
+        "o-",
+        "o-",
+        "oo",
+    ];
+   <span class="red">var</span> figureJ <span class="red">= </span>[
+        "-o",
+        "-o",
+        "oo",
+    ];
+   <span class="red">var</span> figureO <span class="red">= </span>[
+        "oo",
+        "oo",
+    ];
+   <span class="red">var</span> figureZ <span class="red">= </span>[
+        "oo-",
+        "-oo",
+    ];
+   <span class="red">var</span> figureS <span class="red">= </span>[
+        "-oo",
+        "oo-",
+    ];
+   <span class="red">var</span> figureT <span class="red">= </span>[
+        "ooo",
+        "-o-",
+    ];
+
+   <span class="red">var</span> result <span class="red">= </span>{
+        "I": countFits(gameField, figureI),
+        "L": countFits(gameField, figureL),
+        "J": countFits(gameField, figureJ),
+        "O": countFits(gameField, figureO),
+        "Z": countFits(gameField, figureZ),
+        "S": countFits(gameField, figureS),
+        "T": countFits(gameField, figureT),
+    };
+
+    console.log(JSON.stringify(result));
+
+    <span class="red">function</span> countFits(field, figure) {
+       <span class="red">var</span> figureWidth <span class="red">= </span>figure[0].length;
+       <span class="red">var</span> figureHeight <span class="red">= </span>figure.length;
+       <span class="red">var</span> fieldWidth <span class="red">= </span>field[0].length;
+       <span class="red">var</span> fieldHeight <span class="red">= </span>field.length;
+        fitsCount <span class="red">= </span>0;
+       <span class="red">for</span> (var startRow <span class="red">= </span>0; startRow <<span class="red">= </span>fieldHeight - figureHeight; startRow++) {
+           <span class="red">for</span> (var startCol <span class="red">= </span>0; startCol <<span class="red">= </span>fieldWidth - figureWidth; startCol++) {
+               <span class="red">if</span> (isFit(field, figure, startRow, startCol)) {
+                    fitsCount++;
+                }
+            }
+        }
+       <span class="red">return</span> fitsCount;
+    }
+
+    <span class="red">function</span> isFit(field, figure, startRow, startCol) {
+       <span class="red">var</span> figureWidth <span class="red">= </span>figure[0].length;
+       <span class="red">var</span> figureHeight <span class="red">= </span>figure.length;
+       <span class="red">for</span> (var row <span class="red">= </span>0; row < figureHeight; row++) {
+           <span class="red">for</span> (var col <span class="red">= </span>0; col < figureWidth; col++) {
+               <span class="red">if</span> (figure[row][col] =<span class="red">= </span>'o' && field[row + startRow][col + startCol] !<span class="red">= </span>'o') {
+                   <span class="red">return</span> false;
+                }
+            }
+        }
+       <span class="red">return</span> true;
+    }
+}
+</pre>
+        </div>
+        <div id="tab13" class="tab">
+          <p></p>
+       <pre><span class="red">function</span> theNumbers(input) {
+   <span class="red">var</span> text <span class="red">= </span>input[0];
+   <span class="red">var</span> numbers <span class="red">= </span>text.split(/\D+/g).filter(Boolean);
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < numbers.length; i++) {
+       <span class="red">var</span> num <span class="red">= </span>parseInt(numbers[i]);
+       <span class="red">var</span> hex <span class="red">= </span>num.toString(16);
+       <span class="red">var</span> leadingZeros <span class="red">= </span>4 - hex.length;
+		var upperHex <span class="red">= </span>Array(leadingZeros + 1).join('0') + hex;
+        numbers[i] <span class="red">= </span>'0x' + upperHex.toUpperCase();
+    }
+    console.log(numbers.join('-'));
+}</pre>
+        </div>
+        <div id="tab14" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> xRemove(arr) {
+  <span class="red">var</span> matrix <span class="red">= </span>[];
+  <span class="red">var</span> resultMatrix <span class="red">= </span>[];
+
+   arr.forEach(<span class="red">function</span>(string) {
+      matrix.push(string.toLowerCase().split(''));
+      resultMatrix.push(string.split(''));
+   });
+
+  <span class="red">for</span> (var row <span class="red">= </span>0; row < matrix.length - 2; row++) {
+     <span class="red">for</span> (var col <span class="red">= </span>0; col < matrix[row].length; col++) {
+        <span class="red">var</span> char <span class="red">= </span>matrix[row][col];
+        <span class="red">var</span> isX <span class="red">= </span>matrix[row][col + 2] =<span class="red">= </span>char &&
+             matrix[row + 1][col + 1] =<span class="red">= </span>char &&
+             matrix[row + 2][col] =<span class="red">= </span>char &&
+             matrix[row + 2][col + 2] =<span class="red">= </span>char;
+
+        <span class="red">if</span> (isX) {
+            resultMatrix[row][col] <span class="red">= </span>" ";
+            resultMatrix[row][col + 2] <span class="red">= </span>" ";
+            resultMatrix[row + 1][col + 1] <span class="red">= </span>" ";
+            resultMatrix[row + 2][col] <span class="red">= </span>" ";
+            resultMatrix[row + 2][col + 2] <span class="red">= </span>" ";
+         }
+      }
+   }
+  <span class="red">var</span> resultArray <span class="red">= </span>[];
+   resultMatrix.forEach(<span class="red">function</span>(str) {
+      resultArray.push(str.join('').split(" ").join(''));
+   });
+
+   resultArray.forEach(<span class="red">function</span>(item) {
+      console.log(item);
+   });
+}</pre>
+        </div>
+        <div id="tab15" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(arr) {
+  <span class="red">var</span> matrix <span class="red">= </span>[];
+  <span class="red">var</span> resultMatrix <span class="red">= </span>[];
+   arr.forEach(<span class="red">function</span>(string) {
+      matrix.push(string.toLowerCase().split(''));
+      resultMatrix.push(string.split(''));
+   });
+
+  <span class="red">for</span> (var row <span class="red">= </span>0; row < matrix.length - 2; row++) {
+     <span class="red">for</span> (var col <span class="red">= </span>1; col < matrix[row].length; col++) {
+        <span class="red">var</span> char <span class="red">= </span>matrix[row][col];
+        <span class="red">var</span> isX <span class="red">= </span>matrix[row + 1][col - 1] =<span class="red">= </span>char &&
+             matrix[row + 1][col] =<span class="red">= </span>char &&
+             matrix[row + 1][col + 1] =<span class="red">= </span>char &&
+             matrix[row + 2][col] =<span class="red">= </span>char;
+
+        <span class="red">if</span> (isX) {
+            resultMatrix[row][col] <span class="red">= </span>" ";
+            resultMatrix[row + 1][col - 1] <span class="red">= </span>" ";
+            resultMatrix[row + 1][col] <span class="red">= </span>" ";
+            resultMatrix[row + 1][col + 1] <span class="red">= </span>" ";
+            resultMatrix[row + 2][col] <span class="red">= </span>" ";
+         }
+      }
+   }
+
+  <span class="red">var</span> resultArray <span class="red">= </span>[];
+   resultMatrix.forEach(<span class="red">function</span>(str) {
+      resultArray.push(str.join('').split(" ").join(''));
+   });
+
+   resultArray.forEach(<span class="red">function</span>(item) {
+      console.log(item);
+   });
+}</pre>
+        </div>
+        <div id="tab16" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(map) {
+	//Finding the starting position
+   <span class="red">var</span> startingPos <span class="red">= </span>findStartingPos();
+   <span class="red">var</span> isFalling <span class="red">= </span>true;
+
+    while(isFalling) {
+       <span class="red">var</span> currRow <span class="red">= </span>startingPos.row;
+       <span class="red">var</span> currCol <span class="red">= </span>startingPos.col;
+
+		//Uncomment to follow row and col progress
+        //console.log(currRow,currCol);
+
+		//Checks the next move
+       <span class="red">var</span> hasNextMove <span class="red">= </span>checkNextMove(currRow, currCol);
+       <span class="red">if</span>(hasNextMove.status =<span class="red">= </span>'flying') {
+            startingPos.row <span class="red">= </span>hasNextMove.newRow;
+            startingPos.col <span class="red">= </span>hasNextMove.newCol;
+        } else {
+           <span class="red">if</span>(map[hasNextMove.newRow].charAt(hasNextMove.newCol) =<span class="red">= </span>'/' ||
+                map[hasNextMove.newRow].charAt(hasNextMove.newCol) =<span class="red">= </span>'\\' ||
+                map[hasNextMove.newRow].charAt(hasNextMove.newCol) =<span class="red">= </span>'|' ) {
+                console.log('Got smacked on the rock like a dog!');
+                console.log(hasNextMove.newRow, hasNextMove.newCol);
+                break;
+            } else<span class="red">if</span> (map[hasNextMove.newRow].charAt(hasNextMove.newCol) =<span class="red">= </span>'~') {
+                console.log('Drowned in the water like a cat!');
+                console.log(hasNextMove.newRow, hasNextMove.newCol);
+                break;
+            } else {
+                console.log('Landed on the ground like a boss!');
+                console.log(hasNextMove.newRow, hasNextMove.newCol);
+                break;
+            }
+        }
+    }
+
+    <span class="red">function</span> findStartingPos() {
+       <span class="red">for</span> (var i <span class="red">= </span>0; i < map.length; i++) {
+           <span class="red">for</span> (var j <span class="red">= </span>0; j < map[i].length; j++) {
+               <span class="red">if</span>(map[i][j] =<span class="red">= </span>'o') {
+                   <span class="red">return</span> {row: i, col: j};
+                }
+            }
+        }
+    }
+
+    <span class="red">function</span> checkNextMove(row, col) {
+       <span class="red">var</span> windDirection <span class="red">= </span>0;
+       <span class="red">for</span> (var i <span class="red">= </span>0; i < map[row+1].length; i++) {
+           <span class="red">if</span>(map[row+1].charAt(i) =<span class="red">= </span>'>') {
+                windDirection +<span class="red">= </span>1;
+            } else<span class="red">if</span>(map[row+1].charAt(i) =<span class="red">= </span>'<'){
+                windDirection -=1;
+            }
+        }
+       <span class="red">if</span>(map[row+1].charAt(col+windDirection) =<span class="red">= </span>'-' ||
+            map[row+1].charAt(col+windDirection) =<span class="red">= </span>'>' ||
+            map[row+1].charAt(col+windDirection) =<span class="red">= </span>'<') {
+           <span class="red">return</span> {status: 'flying', newRow: row + 1, newCol: col + windDirection};
+        }
+       <span class="red">return</span> {status: 'landed', newRow: row + 1, newCol: col+windDirection};
+    }
+}</pre>
+        </div>
+        <div id="tab17" class="tab">
+          <p></p>
+        <pre><span class="red">function</span> solve(input) {
+   <span class="red">var</span> maxJumps <span class="red">= </span>Number(input[0]),
+        trackLength <span class="red">= </span>Number(input[1]),
+        flees <span class="red">= </span>[],
+        tribunes <span class="red">= </span>new Array(trackLength+1).join('#'),
+        track <span class="red">= </span>[],
+        winner,
+        fleeCount <span class="red">= </span>0;
+
+
+   <span class="red">for</span> (var i <span class="red">= </span>2; i < input.length; i++) {
+       <span class="red">var</span> fleeInfo <span class="red">= </span>input[i].split(/[, ]+/g);
+        flees.push({
+            initial: fleeInfo[0].substr(0,1).toUpperCase(),
+            name: fleeInfo[0],
+            jumpDistance: Number(fleeInfo[1]),
+            index: 0,
+            trackIndex: fleeCount
+        });
+
+       <span class="red">var</span> fleeTrack <span class="red">= </span>Array.apply(null, new Array(trackLength)).map(<span class="red">function</span>() {<span class="red">return</span> '.'; });
+        fleeTrack[0] <span class="red">= </span>fleeInfo[0].substr(0,1).toUpperCase();
+        track.push(fleeTrack);
+        ++fleeCount;
+    }
+
+   <span class="red">for</span> (i <span class="red">= </span>0; i < maxJumps; i++) {
+       <span class="red">var</span> hasFinished <span class="red">= </span>false;
+        flees.every(<span class="red">function</span>(flee) {
+           <span class="red">if</span>(flee.index + flee.jumpDistance ><span class="red">= </span>trackLength - 1) {
+                hasFinished <span class="red">= </span>flee;
+                track[flee.trackIndex][flee.index] <span class="red">= </span>'.';
+                track[flee.trackIndex][track[flee.trackIndex].length-1] <span class="red">= </span>flee.initial;
+               <span class="red">return</span> false;
+            } else {
+                track[flee.trackIndex][flee.index] <span class="red">= </span>'.';
+                track[flee.trackIndex][flee.index + flee.jumpDistance] <span class="red">= </span>flee.initial;
+                flee.index +<span class="red">= </span>flee.jumpDistance;
+               <span class="red">return</span> true;
+            }
+        });
+
+       <span class="red">if</span>(hasFinished) {
+            winner <span class="red">= </span>hasFinished;
+            break;
+        }
+    }
+
+    console.log(tribunes);
+    console.log(tribunes);
+    track.forEach(<span class="red">function</span>(fleeTrack) {
+        console.log(fleeTrack.join(''));
+    });
+    console.log(tribunes);
+    console.log(tribunes);
+   <span class="red">if</span>(!winner) {
+       <span class="red">var</span> maxPos <span class="red">= </span>0;
+        flees.forEach(<span class="red">function</span>(flee) {
+           <span class="red">if</span>(flee.index ><span class="red">= </span>maxPos) {
+                maxPos <span class="red">= </span>flee.index;
+                winner <span class="red">= </span>flee;
+            }
+        })
+    }
+    console.log('Winner: ' + winner.name);
+}
+
+solve(
+    [
+        '3',
+        '40',
+        'S, 5',
+        'L, 1',
+        'O, 7',
+        'C, 3',
+        'H, 10',
+        'A, 12',
+        'I, 5',
+        'N, 8',
+        'O, 0',
+        'S, 6'
+    ]
+);</pre>
+        </div>
+        <div id="tab18" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> theCaptainObviousTribulation(arr) {
+   <span class="red">var</span> words <span class="red">= </span>arr[0].split(/[\s,.:!?]+/g).filter(<span class="red">function</span> (word) {
+       <span class="red">return</span> word !<span class="red">= </span>"";
+    }).map(<span class="red">function</span> (string) {
+       <span class="red">return</span> string.toLowerCase();
+    });
+
+   <span class="red">var</span> wordsCount <span class="red">= </span>[];
+   <span class="red">for</span> (var i in words) {
+       <span class="red">if</span> (wordsCount[words[i]] !<span class="red">= </span>undefined) {
+            wordsCount[words[i]]++;
+        } else {
+            wordsCount[words[i]] <span class="red">= </span>1;
+        }
+    }
+
+   <span class="red">var</span> repeatedWords <span class="red">= </span>[];
+
+   <span class="red">for</span> (key in wordsCount) {
+       <span class="red">if</span> (wordsCount[key] ><span class="red">= </span>3) {
+            repeatedWords.push(key);
+        }
+    }
+
+   <span class="red">if</span> (repeatedWords.length =<span class="red">= </span>0) {
+        console.log("No words");
+       <span class="red">return</span>;
+    }
+
+   <span class="red">var</span> regex <span class="red">= </span>/\S*(.)+?(\?|\.|\!)/g;
+   <span class="red">var</span> sentences <span class="red">= </span>arr[1].match(regex).map(<span class="red">function</span> (string) {
+       <span class="red">return</span> string.trim();
+    });
+
+
+   <span class="red">var</span> sentencesCounter <span class="red">= </span>0;
+   <span class="red">for</span> (var k in sentences) {
+       <span class="red">var</span> wordsInSentence <span class="red">= </span>sentences[k].split(/[\s,.:!?]+/g).map(<span class="red">function</span> (string) {
+           <span class="red">return</span> string.toLowerCase();
+        });
+       <span class="red">var</span> wordsCounter <span class="red">= </span>0;
+       <span class="red">for</span> (var i in repeatedWords) {
+           <span class="red">for</span> (var j in wordsInSentence) {
+               <span class="red">if</span> (wordsInSentence[j] =<span class="red">= </span>repeatedWords[i]) {
+                    wordsCounter++
+                    break;
+                }
+            }
+        }
+
+       <span class="red">if</span> (wordsCounter ><span class="red">= </span>2) {
+            console.log(sentences[k]);
+            sentencesCounter++;
+        }
+    }
+
+   <span class="red">if</span> (sentencesCounter =<span class="red">= </span>0) {
+        console.log("No sentences");
+    }
+}</pre>
+        </div>
+        <div id="tab19" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(arr) {
+   <span class="red">var</span> targetLength <span class="red">= </span>parseInt(arr.pop());
+   <span class="red">var</span> sequence <span class="red">= </span>arr.join(' ').split(' ');
+
+   <span class="red">var</span> currentCount <span class="red">= </span>1;
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < sequence.length; i++) {
+       <span class="red">if</span> (sequence[i] ==<span class="red">= </span>sequence[i + 1]) {
+            currentCount++;
+           <span class="red">if</span> (currentCount =<span class="red">= </span>targetLength) {
+               <span class="red">for</span> (var k <span class="red">= </span>i + 1; k > i + 1 - targetLength; k--) {
+                    sequence[k] <span class="red">= </span>false;
+                }
+                currentCount <span class="red">= </span>1;
+            }
+        } else {
+            currentCount <span class="red">= </span>1;
+        }
+    }
+
+   <span class="red">var</span> resultArr <span class="red">= </span>[];
+   <span class="red">var</span> index <span class="red">= </span>-1;
+   <span class="red">for</span> (i <span class="red">= </span>0; i < arr.length; i++) {
+       <span class="red">var</span> currentRow <span class="red">= </span>arr[i].split(' ');
+       <span class="red">var</span> outputRow <span class="red">= </span>[];
+       <span class="red">for</span> (var j <span class="red">= </span>0; j < currentRow.length; j++) {
+           <span class="red">if</span> (sequence[++index] !=<span class="red">= </span>false) {
+                outputRow.push(sequence[index]);
+            }
+        }
+        resultArr.push(outputRow);
+    }
+
+    while(resultArr.length > 0) {
+       <span class="red">var</span> row <span class="red">= </span>resultArr.shift();
+       <span class="red">if</span> (row.length > 0) {
+            console.log(row.join(' '));
+        } else {
+            console.log('(empty)');
+        }
+    }
+}</pre>
+        </div>
+        <div id="tab20" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> bunnyKill(input) {
+   <span class="red">let</span> bombCoordinates <span class="red">= </span>input.pop().split(' ');
+   <span class="red">let</span> matrix <span class="red">= </span>[];
+   <span class="red">let</span> killedBunnies <span class="red">= </span>0;
+   <span class="red">let</span> damageDone <span class="red">= </span>0;
+
+   <span class="red">for</span>(let line of input){
+        matrix.push(line.split(' ').map(Number));
+    }
+
+   <span class="red">for</span>(let coordinate of bombCoordinates){
+       <span class="red">let</span> tokens <span class="red">= </span>coordinate.split(",").map(Number);
+       <span class="red">let</span> row <span class="red">= </span>tokens[0];
+       <span class="red">let</span> col <span class="red">= </span>tokens[1];
+
+       <span class="red">if</span>(matrix[row][col] > 0) {
+            killedBunnies++;
+           <span class="red">let</span> damage <span class="red">= </span>matrix[row][col];
+            damageDone +<span class="red">= </span>damage;
+
+           <span class="red">for</span>(let i<span class="red">= </span>Math.max(0, row-1); i<=Math.min(matrix.length-1, row+1); i++){
+               <span class="red">for</span>(let j<span class="red">= </span>Math.max(0, col-1); j<<span class="red">= </span>Math.min(matrix[i].length-1, col+1); j++){
+                    matrix[i][j] -<span class="red">= </span>damage;
+                   <span class="red">if</span>(matrix[i][j] < 0){
+                        matrix[i][j] <span class="red">= </span>0;
+                    }
+                }
+            }
+        }
+    }
+
+   <span class="red">for</span>(let row=0; row < matrix.length; row++){
+       <span class="red">for</span>(let col=0; col< matrix[row].length; col++){
+           <span class="red">if</span>(matrix[row][col] > 0){
+                killedBunnies++;
+                damageDone +<span class="red">= </span>matrix[row][col];
+            }
+        }
+    }
+
+    console.log(damageDone);
+    console.log(killedBunnies);
+}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br /><br />
+  <div class="main">
+    <h2>Third Exercise</h2>
+    <div class="tabs animated-slide-1">
+      <ul class="tab-links">
+        <li class="active"><a href="#tab111">.Ancient VS Memory</a></li>
+        <li><a href="#tab222">Survey Parser</a></li>
+        <li><a href="#tab333">Lost </a></li>
+        <li><a href="#tab444">XML Messenger  </a></li>
+        <li><a href="#tab555">Format Helper  </a></li>
+        <li><a href="#tab666"> Spy Master  </a></li>
+        <li><a href="#tab777"> movingLetters  </a></li>
+        <li><a href="#tab888"> Extract Hyperlinks   </a></li>
+        <li><a href="#tab999"> Sort Table </a></li>
+        <li><a href="#tab100">Biggest Table Row </a></li>
+        <li><a href="#tab101"> To The Stars!</a></li>
+        <li><a href="#tab102">Query Mess </a></li>
+        <li><a href="#tab103">Link Strings </a></li>
+        <li><a href="#tab104">Use Your Chains Buddy</a></li>
+        <li><a href="#tab105">Goshko the rabbit </a></li>
+        <li><a href="#tab106"> Magic Grid </a></li>
+        <li><a href="#tab107">Softuni<span class="red">for</span>um </a></li>
+        <li><a href="#tab108">AJAX Request Validator</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="tab111" class="tab active">
+          <p></p>
+          <pre><span class="red">function</span> solve(arr) {
+   <span class="red">let</span> numArr <span class="red">= </span>arr.join(' ').split(' ')
+   <span class="red">for</span> (let i <span class="red">= </span>0; i < numArr.length; i++) {
+       <span class="red">if</span> (numArr[i] ==<span class="red">= </span>'32656' && numArr[i+1] ==<span class="red">= </span>'19759' && numArr[i+2] ==<span class="red">= </span>'32763') {
+           <span class="red">let</span> size <span class="red">= </span>Number(numArr[i + 4])
+           <span class="red">let</span> copy <span class="red">= </span>numArr.slice(i + 6, i + 6 + size)
+            console.log(copy.map(st => String.fromCharCode(st)).join(''))
+        }
+    }
+}
+
+
+solve(['32656 19759 32763 0 5 0 80 101 115 104 111 0 0 0 0 0 0 0 0 0 0 0',
+    '0 32656 19759 32763 0 7 0 83 111 102 116 117 110 105 0 0 0 0 0 0 0 0'])
+solve(['0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 32656 19759 32763 0',
+    '5 0 71 111 115 104 111 0 0 0 0 0 0 0 0 0 32656 19759 32763 0 4 0',
+    '75 105 114 111 0 0 0 0 0 0 0 0 0 0 32656 19759 32763 0 8 0 86 101',
+    '114 111 110 105 107 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0'])</pre>
+        </div>
+        <div id="tab222" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> test3(input) {
+   <span class="red">let</span> surveyRegex <span class="red">= </span>/<sg>((.|\n)*?)<\/svg>/g;
+   <span class="red">let</span><span class="red">for</span>mat <span class="red">= </span>/<cat><text>((.|\n)*)\[((.|\n)*)]((.|\n)*)<\/text><\/cat>\s*<cat>((.|\n)*)<\/cat>/g;
+   <span class="red">let</span> valuesRegex <span class="red">= </span>/\s*<g><val>([0-9]+)<\/val>([0-9]+)<\/g>/g;
+   <span class="red">let</span> matches <span class="red">= </span>surveyRegex.exec(input);
+   <span class="red">let</span> validMatches <span class="red">= </span>[];
+   <span class="red">let</span> survey <span class="red">= </span>'';
+   <span class="red">let</span> values <span class="red">= </span>'';
+
+   <span class="red">if</span> (matches) {
+        while (matches) {
+           <span class="red">let</span> match <span class="red">= </span>matches[1];
+           <span class="red">let</span> isValid =<span class="red">for</span>mat.exec(match);
+           <span class="red">if</span> (isValid) {
+                validMatches.push(match);
+                survey <span class="red">= </span>isValid[3];
+                values <span class="red">= </span>isValid[7];
+            }
+            matches <span class="red">= </span>surveyRegex.exec(input);
+        }
+
+       <span class="red">if</span> (validMatches.length > 0) {
+           <span class="red">let</span> sum <span class="red">= </span>0;
+           <span class="red">let</span> votes <span class="red">= </span>0;
+           <span class="red">let</span> valuesMatches <span class="red">= </span>valuesRegex.exec(values);
+            while (valuesMatches) {
+               <span class="red">let</span> value <span class="red">= </span>Number(valuesMatches[1]);
+               <span class="red">let</span> count <span class="red">= </span>Number(valuesMatches[2]);
+
+               <span class="red">if</span> (value > 0 && value <<span class="red">= </span>10) {
+                    sum +<span class="red">= </span>value * count;
+                    votes +<span class="red">= </span>count;
+                    valuesMatches <span class="red">= </span>valuesRegex.exec(values);
+                }
+            }
+
+           <span class="red">let</span> average <span class="red">= </span>parseFloat((sum / votes).toFixed(2));
+           <span class="red">if</span> (votes ==<span class="red">= </span>0) {
+                average <span class="red">= </span>0;
+            }
+            console.log(`${survey}: ${average}`);
+
+        } else {
+            console.log('Invalid<span class="red">for</span>mat');
+        }
+    } else {
+        console.log('No survey found');
+    }
+}</pre>
+        </div>
+        <div id="tab333" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(keyword, text) {
+           <span class="red">let</span> pattern <span class="red">= </span>/(north|east)\D*(\d{2})[^,]*(,)\D*(\d{6})/gi;
+           <span class="red">let</span> messagePattern <span class="red">= </span>new RegExp(`(${keyword})(.*?)(${keyword})`, 'g');
+           <span class="red">let</span> message <span class="red">= </span>messagePattern.exec(text)[2];
+
+           <span class="red">let</span> latOutput <span class="red">= </span>'';
+           <span class="red">let</span> longOutput <span class="red">= </span>'';
+           <span class="red">let</span> match <span class="red">= </span>pattern.exec(text);
+            while (match) {
+           <span class="red">if</span> (match[1].toLowerCase() ==<span class="red">= </span>'north') {
+            latOutput <span class="red">= </span>`${match[2]}.${match[4]} N`;
+            } else {
+            longOutput <span class="red">= </span>`${match[2]}.${match[4]} E`;
+            }
+            match <span class="red">= </span>pattern.exec(text);
+            }
+
+            console.log(latOutput);
+            console.log(longOutput);
+            console.log(`Message: ${message}`);
+            }</pre>
+        </div>
+        <div id="tab444" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(message) {
+   <span class="red">let</span> tagValidator <span class="red">= </span>/^<message((?:\s+[a-z]+="[A-Za-z0-9 .]+"\s*?)*)>((?:.|\n)+?)<\/message>$/;
+
+   <span class="red">let</span> tokens <span class="red">= </span>tagValidator.exec(message);
+   <span class="red">if</span> (!tokens) {
+        console.log("Invalid message<span class="red">for</span>mat");
+       <span class="red">return</span>;
+    }
+   <span class="red">let</span> [match, attributes, body] <span class="red">= </span>tokens;
+
+   <span class="red">let</span> attributeValidator <span class="red">= </span>/\s+([a-z]+)="([A-Za-z0-9 .]+)"\s*?/g;
+   <span class="red">let</span> sender <span class="red">= </span>'';
+   <span class="red">let</span> recipient <span class="red">= </span>'';
+   <span class="red">let</span> attributeTokens <span class="red">= </span>attributeValidator.exec(attributes);
+    while (attributeTokens) {
+       <span class="red">if</span> (attributeTokens[1] ==<span class="red">= </span>'to') {
+            recipient <span class="red">= </span>attributeTokens[2];
+        } else<span class="red">if</span> (attributeTokens[1] ==<span class="red">= </span>'from') {
+            sender <span class="red">= </span>attributeTokens[2];
+        }
+        attributeTokens <span class="red">= </span>attributeValidator.exec(attributes);
+    }
+   <span class="red">if</span> (sender ==<span class="red">= </span>'' || recipient ==<span class="red">= </span>'') {
+        console.log("Missing attributes");
+       <span class="red">return</span>;
+    }
+
+    body <span class="red">= </span>body.replace(/\n/g, '</p>\n    <p>');
+   <span class="red">let</span> html <span class="red">= </span>`<article>\n  <div>From: <span class="sender">${sender}</span></div>\n`;
+    html +<span class="red">= </span>`  <div>To: <span class="recipient">${recipient}</span></div>\n`;
+               html +<span class="red">= </span>`  <div>\n    <p>${body}</p>\n  </pre>/div>\n</article>`;
+        console.log(html);
+        }</pre>
+        </div>
+        <div id="tab555" class="tab">
+        <p></p>
+       <pre><span class="red">function</span> solve([text]) {
+    console.log(text
+        .replace(/[ ]*([.,!?:;])[ ]*/g, (match, g1) => `${g1} `)
+        .replace(/\. (?=[0-9])/g, (match) => `.`)
+        .replace(/" *(.+?) *"/g, (match, g1) => `"${g1}"`)
+        .replace(/([.,!?:;]) (?=[.,!?:;])/g, (match, g1) => g1));
+}</pre>
+      </div>
+        <div id="tab666" class="tab">
+        <p></p>
+       <pre><span class="red">function</span> spyMaster(input){
+    "use strict";
+   <span class="red">let</span> specialKey <span class="red">= </span>input.shift();
+   <span class="red">let</span> messagePattern <span class="red">= </span>"((?: |^)";
+   <span class="red">for</span>(let i <span class="red">= </span>0; i < specialKey.length; i++){
+        messagePattern +<span class="red">= </span>"[" + specialKey[i].toLowerCase() + specialKey.toUpperCase() + "]";
+    }
+
+    messagePattern +<span class="red">= </span>"[ ]+)([!#$%A-Z]{8,})( |\\.|,|$)";
+   <span class="red">let</span> messageRegex <span class="red">= </span>new RegExp(messagePattern,'g');
+
+   <span class="red">for</span>(let i <span class="red">= </span>0; i < input.length; i++){
+       <span class="red">let</span> line <span class="red">= </span>input[i].replace(messageRegex,replacer);
+        console.log(line);
+    }
+
+    <span class="red">function</span> replacer(match,group1,group2,group3){
+        group2 <span class="red">= </span>group2.replace(/!/g,'1')
+            .replace(/%/g, '2')
+            .replace(/\#/g,'3')
+            .replace(/\$/g,'4')
+            .replace(/[A-Z]/g,x=>x.toLowerCase());
+       <span class="red">return</span> group1 + group2 + group3;
+    }
+}</pre>
+      </div>
+        <div id="tab777" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(args) {
+   <span class="red">var</span> input,
+        word <span class="red">= </span>[],
+
+        result <span class="red">= </span>'',
+        index,
+        len,
+        words <span class="red">= </span>[],
+        totalLetters <span class="red">= </span>0,
+        count <span class="red">= </span>0,
+       <span class="red">let</span>terIndex,
+        newPosition;
+
+    input <span class="red">= </span>args[0].split(' ');
+    len <span class="red">= </span>input.length;
+   <span class="red">for</span> (index <span class="red">= </span>0; index < len; index +<span class="red">= </span>1) {
+        words.push(input[index].split(''));
+        totalLetters +<span class="red">= </span>input[index].length;
+    }
+
+    // create word<span class="red">for</span> encryption
+    count <span class="red">= </span>totalLetters;
+    while (count > 0) {
+       <span class="red">for</span> (index <span class="red">= </span>0; index < len; index +<span class="red">= </span>1) {
+           <span class="red">if</span> (words[index].length > 0) {
+                word.push(words[index].splice(-1, 1)[0]);
+                count -<span class="red">= </span>1;
+            }
+        }
+    }
+
+//   <span class="red">var</span> before,afterRemove, afterInsert;
+   <span class="red">for</span> (index <span class="red">= </span>0; index < totalLetters; index +<span class="red">= </span>1) {
+        // find current index<span class="red">let</span>ter number
+       <span class="red">let</span>terIndex <span class="red">= </span>word[index][0].toUpperCase().charCodeAt(0) - 64;
+
+        // count new position
+        // nmtuahFxgeir     n=14 t=20  14 % 12 <span class="red">= </span>2; ->  mtnuahFxgeir     20 % 12 <span class="red">= </span>8  -> mnuahFxgetir;  21%11=10 -> mnahFxgetiru
+
+        newPosition <span class="red">= </span>letterIndex % totalLetters;
+//         before <span class="red">= </span>word.join();
+       <span class="red">if</span> (index + newPosition  ><span class="red">= </span>totalLetters) {
+            newPosition <span class="red">= </span>index + newPosition - totalLetters ;
+        } else {
+            newPosition <span class="red">= </span>index + newPosition;
+        }
+       <span class="red">var</span> temp <span class="red">= </span>word.splice(index, 1);
+//         afterRemove <span class="red">= </span>word.join();
+        word.splice(newPosition, 0, temp[0]);
+//        afterInsert <span class="red">= </span>word.join();
+    }
+
+   <span class="red">for</span> (index <span class="red">= </span>0; index < totalLetters; index +<span class="red">= </span>1) {
+        result +<span class="red">= </span>word[index][0];
+    }
+
+   <span class="red">return</span> result;
+}
+
+console.log(solve(['Fun exam right']));
+console.log(solve(['Hi exam']));</pre>
+        </div>
+        <div id="tab888" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> extractLinks(input) {
+   <span class="red">var</span> html <span class="red">= </span>input.join('\n');
+   <span class="red">var</span> regex <span class="red">= </span>/<a\s+([^>]+\s+)?href\s*=\s*('([^']*)'|"([^"]*)|([^\s>]+))[^>]*>/g;
+   <span class="red">var</span> match;
+    while (match <span class="red">= </span>regex.exec(html)) {
+       <span class="red">var</span> hrefValue <span class="red">= </span>match[3];
+       <span class="red">if</span> (hrefValue =<span class="red">= </span>undefined) {
+           <span class="red">var</span> hrefValue <span class="red">= </span>match[4];
+        }
+       <span class="red">if</span> (hrefValue =<span class="red">= </span>undefined) {
+           <span class="red">var</span> hrefValue <span class="red">= </span>match[5];
+        }
+        console.log(hrefValue);
+    }
+}
+
+// ------------------------------------------------------------
+// Read the input from the console as array and process it
+// Remove all below code before submitting to the judge system!
+// ------------------------------------------------------------
+
+var arr <span class="red">= </span>[];
+require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+}).on('line', <span class="red">function</span> (line) {
+    arr.push(line);
+}).on('close', <span class="red">function</span> () {
+    extractLinks(arr);
+});
+</pre>
+        </div>
+        <div id="tab999" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> sortTable(input) {
+   <span class="red">var</span> rows <span class="red">= </span>[];
+   <span class="red">for</span> (var i <span class="red">= </span>2; i < input.length - 1; i++) {
+       <span class="red">var</span> rowData <span class="red">= </span>input[i];
+       <span class="red">var</span> regex <span class="red">= </span>/&lt;td>.*?<\/td>&lt;td&gt;(.*?)<\/td>/g;
+       <span class="red">var</span> match <span class="red">= </span>regex.exec(rowData);
+       <span class="red">var</span> price <span class="red">= </span>Number(match[1]);
+       <span class="red">var</span> row <span class="red">= </span>{ price: price, data: rowData };
+        rows.push(row);
+    }
+    rows.sort(<span class="red">function</span> (a, b) {
+       <span class="red">if</span> (a.price !<span class="red">= </span>b.price) {
+           <span class="red">return</span> a.price - b.price;
+        } else {
+           <span class="red">return</span> a.data =<span class="red">= </span>b.data ? 0 : a.data < b.data ? -1 : 1;
+        }
+    });
+    console.log(input[0]);
+    console.log(input[1]);
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < rows.length; i++) {
+        console.log(rows[i].data);
+    }
+    console.log(input[input.length - 1]);
+}</pre>
+        </div>
+        <div id="tab100" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> biggestTableRow(table) {
+   <span class="red">var</span> maxSum <span class="red">= </span>Number.NEGATIVE_INFINITY;
+   <span class="red">for</span> (var lineIndex <span class="red">= </span>2; lineIndex < table.length - 1; lineIndex++) {
+       <span class="red">var</span> row <span class="red">= </span>table[lineIndex];
+       <span class="red">var</span> cells <span class="red">= </span>row.match(/&lt;td>(.*?)<\/td>/g);
+       <span class="red">var</span> sum <span class="red">= </span>0, values <span class="red">= </span>[];
+       <span class="red">for</span> (var c <span class="red">= </span>1; c < cells.length; c++) {
+           <span class="red">var</span> cellValue <span class="red">= </span>cells[c];
+            cellValue <span class="red">= </span>cellValue.substring('&lt;td>'.length);
+            cellValue <span class="red">= </span>cellValue.substring(0, cellValue.length - '&lt;/td>'.length);
+           <span class="red">var</span> num <span class="red">= </span>Number(cellValue.trim());
+           <span class="red">if</span> (! isNaN(num)) {
+                values.push(cellValue);
+                sum +<span class="red">= </span>num;
+            }
+        }
+       <span class="red">if</span> (sum > maxSum && values.length > 0) {
+            maxSum <span class="red">= </span>sum;
+           <span class="red">var</span> maxSumDetails <span class="red">= </span>values.join(' + ');
+        }
+    }
+   <span class="red">if</span> (maxSum !<span class="red">= </span>Number.NEGATIVE_INFINITY) {
+        console.log(maxSum + ' <span class="red">= </span>' + maxSumDetails);
+    } else {
+        console.log("no data");
+    }
+}</pre>
+        </div>
+        <div id="tab101" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> toTheStars(input) {
+   <span class="red">var</span> starOne <span class="red">= </span>input[0].split(/\s+/);
+   <span class="red">var</span> starTwo <span class="red">= </span>input[1].split(/\s+/);
+   <span class="red">var</span> starThree <span class="red">= </span>input[2].split(/\s+/);
+   <span class="red">var</span> nInfo <span class="red">= </span>input[3].split(/\s+/);
+   <span class="red">var</span> nX <span class="red">= </span>parseFloat(nInfo[0]);
+   <span class="red">var</span> nY <span class="red">= </span>parseFloat(nInfo[1]);
+   <span class="red">var</span> turns <span class="red">= </span>parseInt(input[4]);
+
+   <span class="red">var</span> starNames <span class="red">= </span>[starOne[0], starTwo[0], starThree[0]];
+   <span class="red">var</span> starX <span class="red">= </span>[parseFloat(starOne[1]), parseFloat(starTwo[1]), parseFloat(starThree[1])];
+   <span class="red">var</span> starY <span class="red">= </span>[parseFloat(starOne[2]), parseFloat(starTwo[2]), parseFloat(starThree[2])];
+
+   <span class="red">for</span> (var i <span class="red">= </span>0; i <<span class="red">= </span>turns; i++) {
+       <span class="red">var</span> foundStar <span class="red">= </span>false;
+       <span class="red">for</span> (var j <span class="red">= </span>0; j < 3; j++) {
+           <span class="red">if</span> (isInsideStar(nX, nY, starX[j], starY[j])) {
+                console.log(starNames[j].toLowerCase());
+                foundStar <span class="red">= </span>true;
+                break;
+            }
+        }
+       <span class="red">if</span> (!foundStar) {
+            console.log("space");
+        }
+        nY++;
+    }
+
+    <span class="red">function</span> isInsideStar(nX, nY, sX, sY) {
+       <span class="red">return</span> (nX <<span class="red">= </span>sX + 1 && nX ><span class="red">= </span>sX - 1) &&
+            (nY <<span class="red">= </span>sY + 1 && nY ><span class="red">= </span>sY - 1);
+    }
+}
+</pre>
+        </div>
+        <div id="tab102" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(queryStrings) {
+   <span class="red">var</span> result <span class="red">= </span>[];
+
+    queryStrings.forEach(<span class="red">function</span> (line) {
+       <span class="red">var</span> keys <span class="red">= </span>{};
+
+        line.replace(/.+?(?=\?)(\?)+/g, '') // Remove url and '?' symbol
+            .replace(/([^=&]+)=([^&]*)/g,   // Regex to match key/value pairs
+            <span class="red">function</span> (full, key, value) {
+                key <span class="red">= </span>key
+                    .split('%20').join(' ')  // Replace '%20' with empty space
+                    .replace(/[\+]+/g, ' ')  // Replace '+' with empty space
+                    .replace(/\s{2,}/g, ' ') // Replace multiple (2 or more) whitespaces with one
+                    .trim();                 // Trim whitespaces at the beginning and at the end of the string
+
+                value <span class="red">= </span>value
+                    .split('%20').join(' ')
+                    .replace(/[\+]+/g, ' ')
+                    .replace(/\s{2,}/g, ' ')
+                    .trim();
+
+                keys[key] <span class="red">= </span>(keys[key] ? keys[key] + ', ' : '[') + value;
+               <span class="red">return</span> '';
+            });
+
+       <span class="red">for</span> (var key in keys) {
+            result.push(key + '=' + keys[key] + ']');
+        }
+        result.push('\r\n');
+    });
+
+   <span class="red">return</span> result.join('').trim();
+}
+
+module.exports <span class="red">= </span>solve;</pre>
+        </div>
+        <div id="tab103" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(queryStrings) {
+   <span class="red">var</span> result <span class="red">= </span>[];
+
+    queryStrings.forEach(<span class="red">function</span> (line) {
+       <span class="red">var</span> keys <span class="red">= </span>{};
+
+        line.replace(/.+?(?=\?)(\?)+/g, '') // Remove url and '?' symbol
+            .replace(/([^=&]+)=([^&]*)/g,   // Regex to match key/value pairs
+            <span class="red">function</span> (full, key, value) {
+                key <span class="red">= </span>key
+                    .split('%20').join(' ')  // Replace '%20' with empty space
+                    .replace(/[\+]+/g, ' ')  // Replace '+' with empty space
+                    .replace(/\s{2,}/g, ' ') // Replace multiple (2 or more) whitespaces with one
+                    .trim();                 // Trim whitespaces at the beginning and at the end of the string
+
+                value <span class="red">= </span>value
+                    .split('%20').join(' ')
+                    .replace(/[\+]+/g, ' ')
+                    .replace(/\s{2,}/g, ' ')
+                    .trim();
+
+                keys[key] <span class="red">= </span>(keys[key] ? keys[key] + ', ' : '[') + value;
+               <span class="red">return</span> '';
+            });
+
+       <span class="red">for</span> (var key in keys) {
+            result.push(key + '=' + keys[key] + ']');
+        }
+        result.push('\r\n');
+    });
+
+   <span class="red">return</span> result.join('').trim();
+}
+
+module.exports <span class="red">= </span>solve;</pre>
+        </div>
+        <div id="tab104" class="tab">
+          <p></p>
+        <pre><span class="red">function</span> solve(input) {
+   <span class="red">var</span> htmlText <span class="red">= </span>input[0];
+   <span class="red">var</span> myRegexp <span class="red">= </span>/<p>(.+?[\n]*)<\/p>/g;
+   <span class="red">var</span> match <span class="red">= </span>myRegexp.exec(htmlText);
+   <span class="red">var</span> outputArr <span class="red">= </span>[];
+    while (match !<span class="red">= </span>null) {
+        //console.log(match[1])
+       <span class="red">var</span> spaceReplaceArr <span class="red">= </span>match[1].replace(/[A-Z\W]+/g, ' ').split('');
+       <span class="red">var</span> decryptString <span class="red">= </span>'';
+       <span class="red">for</span> (var<span class="red">let</span>terIndex <span class="red">= </span>0;<span class="red">let</span>terIndex < spaceReplaceArr.length;<span class="red">let</span>terIndex ++) {
+           <span class="red">var</span><span class="red">let</span>ter <span class="red">= </span>spaceReplaceArr[letterIndex]
+           <span class="red">var</span> newLetter <span class="red">= </span>letter;
+           <span class="red">if</span>(letter.charCodeAt(0) > 96 &&<span class="red">let</span>ter.charCodeAt(0) < 110) {
+               <span class="red">var</span> newCharCode <span class="red">= </span>letter.charCodeAt(0) + 13;
+                newLetter <span class="red">= </span>String.fromCharCode(newCharCode);
+            } else<span class="red">if</span> (letter.charCodeAt(0) > 109 &&<span class="red">let</span>ter.charCodeAt(0) < 123) {
+               <span class="red">var</span> newCharCode <span class="red">= </span>letter.charCodeAt(0) - 13;
+                newLetter <span class="red">= </span>String.fromCharCode(newCharCode);
+            }
+            decryptString +<span class="red">= </span>newLetter;
+        }
+        outputArr.push(decryptString);
+
+        match <span class="red">= </span>myRegexp.exec(htmlText);
+    }
+    console.log(outputArr.join(''))
+}
+</pre>
+        </div>
+        <div id="tab105" class="tab">
+          <p></p>
+        <pre><span class="red">function</span> solve(input) {
+   <span class="red">var</span> garden <span class="red">= </span>[],
+        directions <span class="red">= </span>input[0].split(', ').filter(<span class="red">function</span>(x) {return x;}),
+        moves <span class="red">= </span>[],
+        rowPos <span class="red">= </span>0,
+        colPos <span class="red">= </span>0,
+        gosho <span class="red">= </span>{
+            '&': 0,
+            '*': 0,
+            '#': 0,
+            '!': 0,
+            'wall hits': 0
+        };
+   <span class="red">for</span> (var i <span class="red">= </span>1; i < input.length; i++) {
+        garden.push(input[i].split(', ').filter(<span class="red">function</span>(x) {return x;}));
+    }
+
+    directions.forEach(moveToDirection);
+
+    console.log(JSON.stringify(gosho));
+    console.log(moves.length > 0 ? moves.join('|') : 'no');
+
+    <span class="red">function</span> moveToDirection(direction) {
+       <span class="red">if</span>(direction =<span class="red">= </span>'right') {
+           <span class="red">if</span>(colPos + 1 < garden[rowPos].length) {
+                ++colPos;
+                checkVegetable();
+            }
+            else {
+                gosho['wall hits']++;
+            }
+        } else<span class="red">if</span>(direction =<span class="red">= </span>'left') {
+           <span class="red">if</span>(colPos - 1 ><span class="red">= </span>0) {
+                --colPos;
+                checkVegetable();
+            }
+            else {
+                gosho['wall hits']++;
+            }
+        } else<span class="red">if</span>(direction =<span class="red">= </span>'up') {
+           <span class="red">if</span>(rowPos - 1 ><span class="red">= </span>0) {
+                --rowPos;
+                checkVegetable();
+            }
+            else {
+                gosho['wall hits']++;
+            }
+        } else<span class="red">if</span>(direction =<span class="red">= </span>'down') {
+           <span class="red">if</span>(rowPos + 1 < garden.length) {
+                ++rowPos;
+                checkVegetable();
+            }
+            else {
+                gosho['wall hits']++;
+            }
+        }
+    }
+
+    <span class="red">function</span> checkVegetable() {
+        garden[rowPos][colPos] <span class="red">= </span>garden[rowPos][colPos].replace(/\{([&*!#])\}/g, <span class="red">function</span>(match, group) {
+            gosho[group] +<span class="red">= </span>1;
+           <span class="red">return</span> '@';
+        });
+        moves.push(garden[rowPos][colPos]);
+    }
+}
+
+solve([
+    'right',
+    'qwekjs, asd{#}a',
+    'qwekjs, asd{#}a'
+    ]
+);</pre>
+        </div>
+        <div id="tab106" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> magicGrid(arr) {
+   <span class="red">var</span> encryptedText <span class="red">= </span>arr[0];
+   <span class="red">var</span> magicNumber <span class="red">= </span>parseInt(arr[1]);
+   <span class="red">var</span> matrix <span class="red">= </span>new Array(arr.length - 2);
+
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < arr.length - 2; i++) {
+       <span class="red">var</span> input <span class="red">= </span>arr[i + 2].split(" ");
+        matrix[i] <span class="red">= </span>new Array(input.length);
+       <span class="red">for</span> (var j <span class="red">= </span>0; j < arr.length - 2; j++) {
+            matrix[i][j] <span class="red">= </span>parseInt(input[j]);
+        }
+    }
+
+   <span class="red">var</span> key;
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < matrix.length; i++) {
+       <span class="red">for</span> (var j <span class="red">= </span>0; j < matrix[i].length; j++) {
+           <span class="red">for</span> (var k <span class="red">= </span>0; k < matrix.length; k++) {
+               <span class="red">for</span> (var l <span class="red">= </span>0; l < matrix[k].length; l++) {
+                   <span class="red">if</span> (matrix[i][j] + matrix[k][l] ==<span class="red">= </span>magicNumber && (i !<span class="red">= </span>k || j !<span class="red">= </span>l)) {
+                        key <span class="red">= </span>i + j + k + l;
+                    }
+                }
+            }
+        }
+    }
+
+   <span class="red">var</span> decryptedText <span class="red">= </span>"";
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < encryptedText.length; i++) {
+       <span class="red">var</span> char <span class="red">= </span>encryptedText.charCodeAt(i);
+       <span class="red">if</span> (i % 2 =<span class="red">= </span>0) {
+            char +<span class="red">= </span>key;
+        } else {
+            char -<span class="red">= </span>key;
+        }
+        decryptedText <span class="red">= </span>decryptedText.concat(String.fromCharCode(char));
+    }
+
+    console.log(decryptedText);
+}</pre>
+        </div>
+        <div id="tab107" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(arr) {
+   <span class="red">var</span> banList <span class="red">= </span>arr.pop().split(' ');
+   <span class="red">var</span> text <span class="red">= </span>arr.join('\n');
+
+   <span class="red">var</span> codePattern <span class="red">= </span>/&lt;code>[\s\S]+?<\/code>/g;
+   <span class="red">var</span> codeBlocks <span class="red">= </span>[];
+   <span class="red">var</span> matchingCode;
+    while (matchingCode <span class="red">= </span>codePattern.exec(text)) {
+       <span class="red">var</span> codeBlock <span class="red">= </span>matchingCode[0];
+       <span class="red">var</span> codeReplacer <span class="red">= </span>new Array(codeBlock.length).join('#');
+        text <span class="red">= </span>text.replace(codeBlock, codeReplacer);
+        codeBlocks.push({
+            original: codeBlock,
+            replacedWith: codeReplacer
+        });
+    }
+
+    banList.forEach(<span class="red">function</span> (entry) {
+       <span class="red">var</span> censoredUserPattern <span class="red">= </span>new RegExp('(#\\b' + entry + ')\\b', 'g');
+       <span class="red">var</span> match;
+        while (match <span class="red">= </span>censoredUserPattern.exec(text)) {
+           <span class="red">var</span> censoredName <span class="red">= </span>match[1];
+           <span class="red">var</span> replacer <span class="red">= </span>new Array(censoredName.length).join('*');
+            text <span class="red">= </span>text.replace(censoredName, replacer);
+        }
+    });
+
+   <span class="red">var</span> validUserPattern <span class="red">= </span>/#(\b[a-zA-Z][\w\-]+[a-zA-Z0-9]\b)/g;
+   <span class="red">var</span> linkOpeningTag <span class="red">= </span>'&lt;a href="/users/profile/show/';
+   <span class="red">var</span> linkClosingTag <span class="red">= </span>'&lt;/a>';
+    text <span class="red">= </span>text.replace(validUserPattern, linkOpeningTag + '$1">$1' + linkClosingTag);
+
+    codeBlocks.forEach(<span class="red">function</span> (codeBlock) {
+        text <span class="red">= </span>text.replace(codeBlock.replacedWith, codeBlock.original);
+    });
+
+    console.log(text);
+}</pre>
+        </div>
+        <div id="tab108" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> ajaxRequestValidator(input) {
+   <span class="red">let</span> hashPattern <span class="red">= </span>input.pop();
+
+   <span class="red">for</span>(let i=0; i<input.length; i+=3){
+       <span class="red">let</span> method <span class="red">= </span>input[i].split(" ");
+       <span class="red">if</span>(method.length !<span class="red">= </span>2 || method[0] !<span class="red">= </span>"Method:" || !(method[1] =<span class="red">= </span>'GET' || method[1] =<span class="red">= </span>'POST' || method[1] =<span class="red">= </span>'PUT' || method[1] =<span class="red">= </span>'DELETE')){
+            console.log("Response-Code:400");
+            continue;
+        }
+
+       <span class="red">let</span> auth <span class="red">= </span>input[i+1].split(" ");
+       <span class="red">if</span>(auth.length !<span class="red">= </span>3 || auth[0] !<span class="red">= </span>"Credentials:" || !(auth[1] =<span class="red">= </span>"Basic" || auth[1] =<span class="red">= </span>"Bearer")){
+            console.log("Response-Code:400");
+            continue;
+        }
+       <span class="red">let</span> authTokenRegex <span class="red">= </span>/^[A-Za-z0-9]+$/;
+       <span class="red">if</span>(! auth[2].match(authTokenRegex)){
+            console.log("Response-Code:400");
+            continue;
+        }
+
+       <span class="red">let</span> content <span class="red">= </span>input[i+2].split(" ");
+       <span class="red">if</span>(content.length !<span class="red">= </span>2 || content[0] !<span class="red">= </span>"Content:"){
+            console.log("Response-Code:400");
+            continue;
+        }
+       <span class="red">let</span> contentRegex <span class="red">= </span>/^[a-zA-Z0-9.]+$/;
+       <span class="red">if</span>(! content[1].match(contentRegex)){
+            console.log("Response-Code:400");
+            continue;
+        }
+
+       <span class="red">if</span>((method[1] =<span class="red">= </span>'POST' || method[1] =<span class="red">= </span>'PUT' || method[1] =<span class="red">= </span>'DELETE') && auth[1] =<span class="red">= </span>"Basic"){
+            console.log(`Response-Method:${method[1]}&Code:401`);
+            continue;
+        }
+
+       <span class="red">let</span> authHashes <span class="red">= </span>[];
+       <span class="red">for</span>(let i=0; i<hashPattern.length; i+=2){
+            authHashes.push(hashPattern.substr(i, 2));
+        }
+
+       <span class="red">let</span> validAuth <span class="red">= </span>false;
+
+       <span class="red">for</span>(let hashPat of authHashes){
+           <span class="red">let</span> count <span class="red">= </span>hashPat[0];
+           <span class="red">let</span> char=hashPat[1];
+
+           <span class="red">let</span> splittedAuth <span class="red">= </span>auth[2].split(char);
+           <span class="red">if</span>(splittedAuth.length - 1 =<span class="red">= </span>count){
+                validAuth <span class="red">= </span>true;
+            }
+        }
+
+       <span class="red">if</span>(! validAuth){
+            console.log(`Response-Method:${method[1]}&Code:403`);
+            continue;
+        }
+
+        console.log(`Response-Method:${method[1]}&Code:200&Header:${auth[2]}`);
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br /><br />
+  <div class="main">
+    <h2>Fourth Exercise</h2>
+    <div class="tabs animated-slide-2">
+      <ul class="tab-links">
+        <li class="active"><a href="#tab1111">Arena Tier</a></li>
+        <li><a href="#tab2222">GameOfEpicness</a></li>
+        <li><a href="#tab3333">Rest House </a></li>
+        <li><a href="#tab4444">Galactic Elections </a></li>
+        <li><a href="#tab5555">Airport  </a></li>
+        <li><a href="#tab6666">Radical Marketing  </a></li>
+        <li><a href="#tab7777">LogsAggregator  </a></li>
+        <li><a href="#tab8888">Concerts   </a></li>
+        <li><a href="#tab9999">Soccer Results </a></li>
+        <li><a href="#tab1000">Students, Courses, Grades </a></li>
+        <li><a href="#tab1001">Cloud Manager </a></li>
+        <li><a href="#tab1002">Vladko's Notebook</a></li>
+        <li><a href="#tab1003">User Module </a></li>
+        <li><a href="#tab1004">All That Luggage </a></li>
+        <li><a href="#tab1005">Rolland Garros </a></li>
+        <li><a href="#tab1006">Student Protocol </a></li>
+        <li><a href="#tab1007">Minka The JavaScript Goddess </a></li>
+        <li><a href="#tab1008">Angular Parser </a></li>
+
+      </ul>
+      <div class="tab-content">
+        <div id="tab1111" class="tab active">
+          <p></p>
+          <pre><span class="red">function</span> solve(arr) {
+   <span class="red">let</span> result <span class="red">= </span>{}
+   <span class="red">for</span> (const string of arr) {
+       <span class="red">if</span> (string.includes(' -> ')) {
+           <span class="red">let</span> [name, item, score] <span class="red">= </span>string.split(' -> ')
+           <span class="red">if</span> (!result.hasOwnProperty(name)) {
+                result[name] <span class="red">= </span>{}
+                result[name][item] <span class="red">= </span>Number(score)
+                result[name]['__total__'] <span class="red">= </span>Number(score)
+            } else {
+               <span class="red">if</span> (!result[name].hasOwnProperty(item)) {
+                    result[name][item] <span class="red">= </span>Number(score)
+                    result[name]['__total__'] +<span class="red">= </span>Number(score)
+                } else {
+                   <span class="red">if</span> (result[name][item] < score) {
+                        result[name]['__total__'] -<span class="red">= </span>result[name][item]
+                        result[name]['__total__'] +<span class="red">= </span>Number(score)
+                        result[name][item] <span class="red">= </span>Number(score)
+                    }
+                }
+            }
+        } else<span class="red">if</span> (string.includes(' vs ')) {
+           <span class="red">let</span> [gladiator1, gladiator2] <span class="red">= </span>string.split(' vs ')
+           <span class="red">if</span> (result.hasOwnProperty(gladiator1) && result.hasOwnProperty(gladiator2)) {
+               <span class="red">for</span> (const g1Item in result[gladiator1]) {
+                   <span class="red">let</span> g1Score <span class="red">= </span>result[gladiator1][g1Item]
+                   <span class="red">let</span> g2Score <span class="red">= </span>result[gladiator2][g1Item]
+                   <span class="red">if</span> (g1Score && g2Score && g1Item !=<span class="red">= </span>'__total__') {
+                       <span class="red">if</span> (g1Score > g2Score) {
+                            delete result[gladiator2]
+                            break
+                        } else<span class="red">if</span> (g1Score < g2Score) {
+                            delete result[gladiator1]
+                            break
+                        }
+                    }
+                }
+            }
+        } else {
+            break
+        }
+    }
+   <span class="red">let</span> sortedGladiators <span class="red">= </span>Object.keys(result).sort((g1, g2) => {
+       <span class="red">let</span> diffInScore <span class="red">= </span>result[g2]['__total__'] - result[g1]['__total__']
+       <span class="red">if</span> (diffInScore ==<span class="red">= </span>0) {
+           <span class="red">return</span> g1.localeCompare(g2)
+        }
+       <span class="red">return</span> diffInScore
+    })
+   <span class="red">for</span> (const gl of sortedGladiators) {
+        console.log(`${gl}: ${result[gl]['__total__']} skill`)
+       <span class="red">let</span> sortedItems <span class="red">= </span>Object.keys(result[gl]).filter(i => i !=<span class="red">= </span>'__total__').sort((i1, i2) => {
+           <span class="red">let</span> diffInScore <span class="red">= </span>result[gl][i2] - result[gl][i1]
+           <span class="red">if</span> (diffInScore ==<span class="red">= </span>0) {
+               <span class="red">return</span> i1.localeCompare(i2)
+            }
+           <span class="red">return</span> diffInScore
+        })
+       <span class="red">for</span> (const item of sortedItems) {
+            console.log(`- ${item} <!> ${result[gl][item]}`)
+        }
+    }
+}
+
+
+// solve(['Pesho -> BattleCry -> 400',
+//     'Gosho -> PowerPunch -> 300',
+//     'Stamat -> Duck -> 200',
+//     'Stamat -> Tiger -> 250',
+//     'Ave Cesar'])
+// console.log()
+solve(['Pesho -> Duck -> 400',
+    'Julius -> Shield -> 150',
+    'Gladius -> Heal -> 200',
+    'Gladius -> Support -> 250',
+    'Gladius -> Shield -> 250',
+    'Pesho vs Gladius',
+    'Gladius vs Julius',
+    'Gladius vs Gosho',
+    'Ave Cesar'])</pre>
+        </div>
+        <div id="tab2222" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> printWinningKingdom(inputGenerals, battles) {
+           <span class="red">let</span> kingdoms <span class="red">= </span>getKingdoms();
+
+           <span class="red">for</span> (let i <span class="red">= </span>0; i < battles.length; i++) {
+           <span class="red">let</span> attacker <span class="red">= </span>getGeneral(battles[i][0], battles[i][1]);
+           <span class="red">let</span> defender <span class="red">= </span>getGeneral(battles[i][2], battles[i][3]);
+
+           <span class="red">if</span> (attacker ==<span class="red">= </span>null || defender ==<span class="red">= </span>null ||
+            attacker.kingdom ==<span class="red">= </span>defender.kingdom ||
+            attacker.army ==<span class="red">= </span>defender.army) {
+            continue;
+            }
+
+           <span class="red">if</span> (attacker.army > defender.army) {
+            attacker.wins++;
+            attacker.army <span class="red">= </span>Math.floor(attacker.army * 1.10);
+            defender.loses++;
+            defender.army <span class="red">= </span>Math.floor(defender.army * 0.90);
+            } else {
+            defender.wins++;
+            defender.army <span class="red">= </span>Math.floor(defender.army * 1.10);
+            attacker.loses++;
+            attacker.army <span class="red">= </span>Math.floor(attacker.army * 0.90);
+            }
+            }
+
+            // printing
+           <span class="red">let</span> [winningKingdom, winningGenerals] <span class="red">= </span>[...kingdoms]
+            .sort((a, b) => {
+            // Kingdom Wins Descending
+           <span class="red">let</span> secondWins <span class="red">= </span>b[1].map(g => g.wins).reduce((g1, g2) => g1 + g2);
+           <span class="red">let</span> firstWins <span class="red">= </span>a[1].map(g => g.wins).reduce((g1, g2) => g1 + g2);
+           <span class="red">let</span> winsDiff <span class="red">= </span>secondWins - firstWins;
+            //let winsDiff <span class="red">= </span>b[1].reduce((g1, g2) => g1.wins + g2.wins) - a[1].reduce((g1, g2) => g1.wins + g2.wins);
+           <span class="red">if</span> (winsDiff !=<span class="red">= </span>0) {
+           <span class="red">return</span> winsDiff;
+            }
+
+            // Kingdom Loses Ascending
+           <span class="red">let</span> firstLosses <span class="red">= </span>a[1].map(g => g.loses).reduce((g1, g2) => g1 + g2);
+           <span class="red">let</span> secondLosses <span class="red">= </span>b[1].map(g => g.loses).reduce((g1, g2) => g1 + g2);
+           <span class="red">let</span> lossesDif <span class="red">= </span>firstLosses - secondLosses;
+           <span class="red">if</span> (lossesDif !=<span class="red">= </span>0) {
+           <span class="red">return</span> lossesDif
+            }
+
+            // Kingdom Name Ascending Alphabetical
+           <span class="red">return</span> a[0].localeCompare(b[0]);
+            })[0]
+
+           <span class="red">let</span> result <span class="red">= </span>`Winner: ${winningKingdom}\n`;
+           <span class="red">for</span> (const g of winningGenerals.sort((a, b) => b.army - a.army)) {
+            result +<span class="red">= </span>`/\\general: ${g.general}\n` +
+            `---army: ${g.army}\n` +
+            `---wins: ${g.wins}\n` +
+            `---losses: ${g.loses}\n`;
+            }
+
+            console.log(result.trim());
+
+            <span class="red">function</span> getGeneral(kingdomName, generalName) {
+           <span class="red">let</span> currentKingdom <span class="red">= </span>kingdoms.get(kingdomName);
+           <span class="red">if</span> (!currentKingdom) {
+           <span class="red">return</span> null;
+            }
+
+           <span class="red">let</span> general <span class="red">= </span>currentKingdom.filter(g => g.general ==<span class="red">= </span>generalName);
+           <span class="red">if</span> (general.length ==<span class="red">= </span>0) {
+           <span class="red">return</span> null
+            }
+
+           <span class="red">return</span> general[0];
+            }
+
+            <span class="red">function</span> getKingdoms() {
+           <span class="red">let</span> kingdoms <span class="red">= </span>new Map();
+
+           <span class="red">for</span> (const line of inputGenerals) {
+           <span class="red">let</span> currentKingdom <span class="red">= </span>kingdoms.get(line.kingdom);
+           <span class="red">if</span> (!currentKingdom) {
+            kingdoms.set(line.kingdom, []);
+            currentKingdom <span class="red">= </span>kingdoms.get(line.kingdom);
+            }
+
+           <span class="red">let</span> currentGeneral <span class="red">= </span>currentKingdom.filter(g => g.general ==<span class="red">= </span>line.general)[0];
+           <span class="red">if</span> (!currentGeneral) {
+            currentGeneral <span class="red">= </span>{
+            general: line.general,
+            army: line.army,
+            kingdom: line.kingdom,
+            wins: 0,
+            loses: 0
+            }
+
+            currentKingdom.push(currentGeneral);
+            } else {
+            currentGeneral.army +<span class="red">= </span>line.army;
+            }
+            }
+
+           <span class="red">return</span> kingdoms;
+            }
+            }
+
+            printWinningKingdom(
+            // { kingdom: String, general: String, army: Number }
+            [
+            { kingdom: "Maiden Way", general: "Merek", army: 5000 },
+            { kingdom: "Stonegate", general: "Ulric", army: 4900 },
+            { kingdom: "Stonegate", general: "Doran", army: 70000 },
+            { kingdom: "YorkenShire", general: "Quinn", army: 0 },
+            { kingdom: "YorkenShire", general: "Quinn", army: 2000 },
+            { kingdom: "Maiden Way", general: "Berinon", army: 100000 }
+            ],
+            // [ "{AttackingKingdom} ", "{AttackingGeneral}", "{DefendingKingdom} ", "{DefendingGeneral}" ]
+            [
+            ["YorkenShire", "Quinn", "Stonegate", "Ulric"],
+            ["Stonegate", "Ulric", "Stonegate", "Doran"],
+            ["Stonegate", "Doran", "Maiden Way", "Merek"],
+            ["Stonegate", "Ulric", "Maiden Way", "Merek"],
+            ["Maiden Way", "Berinon", "Stonegate", "Ulric"]
+            ]
+            );
+
+            console.log();
+            console.log('*'.repeat(50));
+            console.log();
+
+            printWinningKingdom(
+            [{ kingdom: "Stonegate", general: "Ulric", army: 5000 },
+            { kingdom: "YorkenShire", general: "Quinn", army: 5000 },
+            { kingdom: "Maiden Way", general: "Berinon", army: 1000 }],
+
+            [["YorkenShire", "Quinn", "Stonegate", "Ulric"],
+            ["Maiden Way", "Berinon", "YorkenShire", "Quinn"]]
+            );</pre>
+        </div>
+        <div id="tab3333" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> restHouse(availableRooms, guests) {
+   <span class="red">let</span> rooms <span class="red">= </span>new Map();
+   <span class="red">let</span> guestsWithoutRooms <span class="red">= </span>0;
+   <span class="red">for</span> (let currentRoom of availableRooms) {
+       <span class="red">let</span> roomSpace <span class="red">= </span>currentRoom.type ==<span class="red">= </span>'double-bedded' ? 2 : 3;
+        rooms.set(currentRoom.number, { type: currentRoom.type, emptyBeds: roomSpace });
+    }
+   <span class="red">for</span> (let currentPair of guests) {
+       <span class="red">let</span> roomFound <span class="red">= </span>false;
+       <span class="red">if</span> (currentPair.first.gender !<span class="red">= </span>currentPair.second.gender) {
+           <span class="red">for</span> (let [key, value] of rooms) {
+               <span class="red">if</span> (value.type =<span class="red">= </span>'double-bedded' && value.emptyBeds =<span class="red">= </span>2) {
+                    value.guests <span class="red">= </span>[];
+                    value.guests <span class="red">= </span>[currentPair.first, currentPair.second];
+                    value.emptyBeds <span class="red">= </span>0;
+                    roomFound <span class="red">= </span>true;
+                    break;
+                }
+            }
+        } else {
+           <span class="red">for</span> (let [key, value] of rooms) {
+               <span class="red">if</span> (value.type =<span class="red">= </span>'triple' && value.emptyBeds > 1) {
+                   <span class="red">if</span> (value.guests =<span class="red">= </span>undefined) {
+                        value.guests <span class="red">= </span>[];
+                    } else<span class="red">if</span> (value.guests[0].gender !<span class="red">= </span>currentPair.second.gender) {
+                        continue;
+                    }
+                   <span class="red">if</span> (currentPair.first !<span class="red">= </span>undefined) {
+                        value.guests.push(currentPair.first);
+                        value.emptyBeds -<span class="red">= </span>1;
+                    }
+                    value.guests.push(currentPair.second);
+                    value.emptyBeds -<span class="red">= </span>1;
+                    roomFound <span class="red">= </span>true;
+                    break;
+                } else<span class="red">if</span> (value.type =<span class="red">= </span>'triple' && value.emptyBeds =<span class="red">= </span>1) {
+                   <span class="red">if</span> (value.guests[0].gender =<span class="red">= </span>currentPair.second.gender) {
+                        value.guests.push(currentPair.first =<span class="red">= </span>undefined ? currentPair.second : currentPair.first);
+                        value.emptyBeds -<span class="red">= </span>1;
+                        currentPair.first <span class="red">= </span>undefined;
+                    }
+                }
+            }
+        }
+       <span class="red">if</span> (!roomFound) {
+            guestsWithoutRooms +<span class="red">= </span>currentPair.first =<span class="red">= </span>undefined ? 1 : 2;
+        }
+    }
+   <span class="red">for</span> (let [room, value] of [...rooms].sort()) {
+        console.log(`Room number: ${room}`);
+       <span class="red">if</span> (value.guests !<span class="red">= </span>undefined) {
+           <span class="red">for</span> (let guest of value.guests.sort(<span class="red">function</span> (a, b) {
+               <span class="red">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+            })) {
+                console.log(`--Guest Name: ${guest.name}`);
+                console.log(`--Guest Age: ${guest.age}`);
+            }
+        }
+        console.log(`Empty beds in the room: ${value.emptyBeds}`);
+    }
+    console.log(`Guests moved to the tea house: ${guestsWithoutRooms}`);
+}
+</pre>
+        </div>
+        <div id="tab4444" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(ballots) {
+   <span class="red">let</span> election <span class="red">= </span>new Map();
+
+   <span class="red">for</span> (let ballot of ballots) {
+       <span class="red">if</span> (!election.has(ballot.system)) {
+            election.set(ballot.system, new Map());
+        }
+       <span class="red">if</span> (!election.get(ballot.system).has(ballot.candidate)) {
+            election.get(ballot.system).set(ballot.candidate, 0);
+        }
+       <span class="red">let</span> currentVotes <span class="red">= </span>election.get(ballot.system).get(ballot.candidate);
+        election.get(ballot.system).set(ballot.candidate, currentVotes + ballot.votes);
+    }
+
+   <span class="red">let</span> result <span class="red">= </span>new Map();
+    [...election].map(([s, c]) =>
+        [s, [...c].sort((a, b) =>           // Place candidate with most votes in system in first place
+        b[1] - a[1]).reduce((a, b) =>       // Collect all votes into first element (previously sorted)
+            [a[0], a[1] + b[1]])])
+        .map(([s, [c, v]]) => [c, s, v])    // Change structure from system with candidates to candidate with systems (all that he won)
+        .forEach(([c, s, v], i, arr) => result.has(c) ? result.get(c).set(s, v) : result.set(c, new Map([[s, v]])));    // Transfer results to another map
+
+   <span class="red">let</span> ranking <span class="red">= </span>[...result].map(([c, s]) =>
+        [c, [...s].map(([s, v]) => v)           // Sum the votes<span class="red">for</span> each candidate
+            .reduce((a, b) => a + b)])
+        .sort(([c1, v1], [c2, v2]) => v2 - v1); // Sort by number of votes
+
+    // Calculate total turnout (number of votes)
+   <span class="red">let</span> total <span class="red">= </span>ranking.map(([c, v]) => v).reduce((a, b) => a + b);
+
+   <span class="red">if</span> (ranking[0][1] > total / 2) {
+        console.log(`${ranking[0][0]} wins with ${ranking[0][1]} votes`);
+       <span class="red">if</span> (ranking.length > 1) {
+           <span class="red">let</span> runnerup <span class="red">= </span>ranking[1][0];
+            console.log(`Runner up: ${runnerup}`);
+            [...result.get(runnerup)].sort(([s1, v1], [s2, v2]) => v2 - v1).forEach(s => console.log(`${s[0]}: ${s[1]}`))
+        } else {
+            console.log(`${ranking[0][0]} wins unopposed!`);
+        }
+    } else {
+        console.log(`Runoff between ${ranking[0][0]} with ${Math.floor(ranking[0][1] / total * 100)}% and ${ranking[1][0]} with ${Math.floor(ranking[1][1] / total * 100)}%`);
+    }
+}</pre>
+        </div>
+        <div id="tab5555" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(input) {
+   <span class="red">let</span> planes <span class="red">= </span>new Set();
+   <span class="red">let</span> port <span class="red">= </span>new Map();
+
+   <span class="red">for</span> (let plane of input) {
+       <span class="red">let</span> tokens <span class="red">= </span>plane.split(" ");
+       <span class="red">let</span> name <span class="red">= </span>tokens[0];
+       <span class="red">let</span> town <span class="red">= </span>tokens[1];
+       <span class="red">let</span> ppl <span class="red">= </span>Number(tokens[2]);
+       <span class="red">let</span> action <span class="red">= </span>tokens[3];
+
+       <span class="red">if</span> (action =<span class="red">= </span>'depart') {
+           <span class="red">if</span> (!planes.has(name)) continue;
+            else {
+                planes.delete(name);
+            }
+        }
+       <span class="red">if</span> (action =<span class="red">= </span>'land') {
+           <span class="red">if</span> (planes.has(name)) continue;
+            else {
+                planes.add(name);
+            }
+        }
+
+       <span class="red">if</span> (!port.has(town)) {
+            port.set(town, {planes: [], arrivals: 0, departures: 0});
+        }
+       <span class="red">if</span> (!port.get(town).planes.includes(name)) {
+            port.get(town).planes.push(name);
+        }
+       <span class="red">if</span> (action =<span class="red">= </span>"land") {
+            port.get(town).arrivals +<span class="red">= </span>ppl;
+        } else {
+            port.get(town).departures +<span class="red">= </span>ppl;
+        }
+    }
+    console.log("Planes left:");
+    [...planes].sort((p1, p2) => p1.localeCompare(p2)).forEach(p => console.log(`- ${p}`));
+    [...port].sort((t1, t2) => {
+       <span class="red">if</span> (t1[1].arrivals < t2[1].arrivals)<span class="red">return</span> 1;
+       <span class="red">if</span> (t1[1].arrivals > t2[1].arrivals)<span class="red">return</span> -1;
+       <span class="red">return</span> t1[0].localeCompare(t2[0]);
+    }).forEach(logData);
+
+    <span class="red">function</span> logData(town) {
+        //console.log(`${town[0]} ${town[1].arrivals} ${town[1].departures}`);
+        console.log(town[0]);
+        console.log(`Arrivals: ${town[1].arrivals}`);
+        console.log(`Departures: ${town[1].departures}`);
+        console.log("Planes:");
+        town[1].planes.sort((p1, p2) => p1.localeCompare(p2)).forEach(p => console.log(`-- ${p}`));
+    }
+}</pre>
+        </div>
+        <div id="tab6666" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> main(input) {
+   <span class="red">let</span> log <span class="red">= </span>new Map();
+   <span class="red">let</span> subscriptions <span class="red">= </span>new Map();
+
+   <span class="red">for</span> (let i <span class="red">= </span>0; i < input.length; i++) {
+       <span class="red">let</span> currentCommand <span class="red">= </span>input[i].split("-");
+
+       <span class="red">if</span> (currentCommand.length ==<span class="red">= </span>2) {
+           <span class="red">if</span>(log.has(currentCommand[0]) && log.has(currentCommand[1])) {
+                log.get(currentCommand[1]).add(currentCommand[0]);
+                subscriptions.get(currentCommand[0]).add(currentCommand[1]);
+            }
+        } else {
+           <span class="red">if</span>(!log.has(currentCommand[0])) {
+                log.set(currentCommand[0], new Set());
+                subscriptions.set(currentCommand[0], new Set());
+            }
+        }
+    }
+
+   <span class="red">var</span> sortedLog <span class="red">= </span>new Map([...log.entries()].sort(<span class="red">function</span>(firstEntry, secondEntry) {
+       <span class="red">let</span> firstEntryName <span class="red">= </span>firstEntry[0];
+       <span class="red">let</span> firstEntrySubscribers <span class="red">= </span>firstEntry[1].size;
+
+       <span class="red">let</span> secondEntryName <span class="red">= </span>secondEntry[0];
+       <span class="red">let</span> secondEntrySubscribers <span class="red">= </span>secondEntry[1].size;
+
+       <span class="red">let</span> result <span class="red">= </span>secondEntrySubscribers - firstEntrySubscribers;
+
+       <span class="red">if</span>(result =<span class="red">= </span>0) {
+           <span class="red">let</span> firstEntrySubscriptions <span class="red">= </span>subscriptions.get(firstEntryName).size;
+           <span class="red">let</span> secondEntrySubscriptions <span class="red">= </span>subscriptions.get(secondEntryName).size;
+
+            result <span class="red">= </span>secondEntrySubscriptions - firstEntrySubscriptions;
+        }
+
+       <span class="red">return</span> result;
+    }));
+
+   <span class="red">let</span> mostImportantPerson <span class="red">= </span>[...sortedLog.entries()][0];
+    console.log(mostImportantPerson[0]);
+
+   <span class="red">let</span> count <span class="red">= </span>1;
+    mostImportantPerson[1].forEach(<span class="red">function</span>(e){
+        console.log(count + ". " + e);
+        count++;
+    });
+}
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "A",
+//     "B",
+//     "C",
+//     "D",
+//     "A-B",
+//     "B-A",
+//     "C-A",
+//     "D-A"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "J",
+//     "G",
+//     "P",
+//     "R",
+//     "C",
+//     "J-G",
+//     "G-J",
+//     "P-R",
+//     "R-P",
+//     "C-J"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "A",
+//     "B",
+//     "A-B",
+//     "C",
+//     "C-B",
+//     "D",
+//     "D-B",
+//     "E",
+//     "E-B",
+//     "A-C",
+//     "D-C",
+//     "E-C"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "Z",
+//     "O",
+//     "P",
+//     "Q",
+//     "Z-O",
+//     "P-O",
+//     "O-Z",
+//     "O-P"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "F",
+//     "E",
+//     "F-E",
+//     "E-F",
+//     "V",
+//     "V-F",
+//     "H",
+//     "H-F"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "A",
+//     "B",
+//     "C",
+//     "A-B",
+//     "B-A",
+//     "A-C"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "Z",
+//     "O",
+//     "R",
+//     "D",
+//     "Z-O",
+//     "R-O",
+//     "D-O",
+//     "P",
+//     "O-P",
+//     "O-Z",
+//     "R-Z",
+//     "D-Z"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "A",
+//     "B",
+//     "B-A",
+//     "C",
+//     "A-B",
+//     "C-B",
+//     "C-A"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "T",
+//     "E",
+//     "S",
+//     "T-E",
+//     "E-S",
+//     "S-T"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "A",
+//     "B",
+//     "C",
+//     "A-B",
+//     "D-A"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "P",
+//     "P-R",
+//     "R",
+//     "P-R",
+//     "P-E",
+//     "E",
+//     "P-E",
+//     "P-L",
+//     "L",
+//     "P-L",
+//     "P-A",
+//     "A",
+//     "P-A",
+//     "P-S",
+//     "S",
+//     "P-S",
+//     "P-T",
+//     "T",
+//     "P-T",
+//     "T-P"
+// ];
+
+//<span class="red">let</span> arr <span class="red">= </span>[
+//     "T",
+//     "E",
+//     "S",
+//     "T",
+//     "D-D",
+//     "Q-P",
+//     "R-D"
+// ];
+
+// main(arr);</pre>
+        </div>
+        <div id="tab7777" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve(args) {
+   <span class="red">var</span> result,
+        users <span class="red">= </span>[],
+        transmision <span class="red">= </span>{},
+        len <span class="red">= </span>+args[0],
+        index,
+        line <span class="red">= </span>[],
+        user,
+        ip;
+
+   <span class="red">for</span> (index <span class="red">= </span>1; index <<span class="red">= </span>len; index +<span class="red">= </span>1) {
+        line <span class="red">= </span>args[index].split(' ');
+        user <span class="red">= </span>args[index].match(/([A-Za-z]+)/g).join(' ');
+        ip <span class="red">= </span>args[index].match(/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/g)[0];
+       <span class="red">if</span> (users.indexOf(user) ==<span class="red">= </span>-1) {
+            users.push(user);
+        }
+
+       <span class="red">if</span> (transmision[user]) {
+            transmision[user]['total'] +<span class="red">= </span>parseInt(line[line.length-1]);
+           <span class="red">if</span> (transmision[user].ip.indexOf(ip) ==<span class="red">= </span>-1) {
+                transmision[user].ip.push(ip);
+            }
+        } else {
+            transmision[user] <span class="red">= </span>{};
+            transmision[user]['total'] <span class="red">= </span>parseInt(line[line.length-1]);
+            transmision[user].ip <span class="red">= </span>[];
+            transmision[user].ip.push(ip);
+        }
+    }
+
+    users.sort();
+   <span class="red">for</span> (user in transmision) {
+        transmision[user].ip.sort(<span class="red">function</span> (a, b) {
+            a <span class="red">= </span>+(a.split('.').join(''));
+            b <span class="red">= </span>+(b.split('.').join(''));
+           <span class="red">return</span> a - b;
+        });
+    }
+
+    result <span class="red">= </span>[];
+   <span class="red">for</span> (index <span class="red">= </span>0, len <span class="red">= </span>users.length; index < len; index +<span class="red">= </span>1) {
+        result.push(users[index] + ': ' + transmision[users[index]].total +
+            ' [' + transmision[users[index]].ip.join(', ') + ']');
+    }
+
+   <span class="red">return</span> result.join('\n');
+}
+
+
+console.log(solve(['7','192.168.0.11 peter 33','10.10.17.33 alex 12','10.10.17.35 peter 30','10.10.17.34 peter 120','10.10.17.34 peter 120','212.50.118.81 alex 46','212.50.118.81 alex 4']));
+console.log(solve(['2','84.238.140.178 nakov 25','84.238.140.178 nakov 35']));
+//console.log(solve(['3', '0.238.0.178 nakov hakov takkov 25', '0.0.0.178 nakov 35', '10.10.10.178 nakov 35']));</pre>
+        </div>
+        <div id="tab8888" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> concerts(input) {
+   <span class="red">var</span> concertInfo <span class="red">= </span>{ };
+   <span class="red">for</span> (var i in input) {
+       <span class="red">var</span> tokens <span class="red">= </span>input[i].split('|');
+       <span class="red">var</span> band <span class="red">= </span>tokens[0].trim();
+       <span class="red">var</span> town <span class="red">= </span>tokens[1].trim();
+       <span class="red">var</span> date <span class="red">= </span>tokens[2].trim();
+       <span class="red">var</span> venue <span class="red">= </span>tokens[3].trim();
+
+       <span class="red">if</span> (!concertInfo[town]) {
+            concertInfo[town] <span class="red">= </span>{ };
+        }
+       <span class="red">if</span> (!concertInfo[town][venue]) {
+            concertInfo[town][venue] <span class="red">= </span>[];
+        }
+       <span class="red">if</span> (concertInfo[town][venue].indexOf(band) =<span class="red">= </span>-1) {
+            concertInfo[town][venue].push(band);
+        }
+    }
+
+    // Sort the concertInfo structure
+    concertInfo <span class="red">= </span>sortObjectProperties(concertInfo);
+   <span class="red">for</span> (var town in concertInfo) {
+        concertInfo[town] <span class="red">= </span>sortObjectProperties(concertInfo[town]);
+       <span class="red">for</span> (var venue in concertInfo[town]) {
+            concertInfo[town][venue].sort();
+        }
+    }
+
+	// Print the concertInfo as JSON string
+    console.log(JSON.stringify(concertInfo));
+
+    <span class="red">function</span> sortObjectProperties(obj) {
+       <span class="red">var</span> keysSorted <span class="red">= </span>Object.keys(obj).sort();
+       <span class="red">var</span> sortedObj <span class="red">= </span>{};
+       <span class="red">for</span> (var i <span class="red">= </span>0; i < keysSorted.length; i++) {
+           <span class="red">var</span> key <span class="red">= </span>keysSorted[i];
+            sortedObj[key] <span class="red">= </span>obj[key];
+        }
+       <span class="red">return</span> sortedObj;
+    }
+}
+
+// ------------------------------------------------------------
+// Read the input from the console as array and process it
+// Remove all below code before submitting to the judge system!
+// ------------------------------------------------------------
+
+var arr <span class="red">= </span>[];
+require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+}).on('line', <span class="red">function</span> (line) {
+    arr.push(line);
+}).on('close', <span class="red">function</span> () {
+    concerts(arr);
+});
+</pre>
+        </div>
+        <div id="tab9999" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> soccerResults(input) {
+   <span class="red">var</span> results <span class="red">= </span>{ };
+   <span class="red">for</span> (i in input) {
+       <span class="red">var</span> matchResults <span class="red">= </span>input[i].split(/[\/:-]+/);
+       <span class="red">var</span> teamHome <span class="red">= </span>matchResults[0].trim();
+       <span class="red">var</span> teamAway <span class="red">= </span>matchResults[1].trim();
+       <span class="red">var</span> goalsHome <span class="red">= </span>Number(matchResults[2].trim());
+       <span class="red">var</span> goalsAway <span class="red">= </span>Number(matchResults[3].trim());
+        processResults(results, teamHome, teamAway, goalsHome, goalsAway);
+        processResults(results, teamAway, teamHome, goalsAway, goalsHome);
+    }
+
+    // Sort the results structure
+    results <span class="red">= </span>sortObjectProperties(results);
+   <span class="red">for</span> (var team in results) {
+        results[team].matchesPlayedWith.sort();
+    }
+
+    // Print the results as JSON string
+    console.log(JSON.stringify(results));
+
+    <span class="red">function</span> processResults(results, teamHome, teamAway, goalsHome, goalsAway) {
+       <span class="red">if</span> (!results[teamHome]) {
+            results[teamHome] <span class="red">= </span>{ goalsScored: 0, goalsConceded: 0, matchesPlayedWith: []};
+        }
+        results[teamHome].goalsScored +<span class="red">= </span>goalsHome;
+        results[teamHome].goalsConceded +<span class="red">= </span>goalsAway;
+       <span class="red">if</span> (results[teamHome].matchesPlayedWith.indexOf(teamAway) =<span class="red">= </span>-1) {
+            results[teamHome].matchesPlayedWith.push(teamAway);
+        }
+    }
+
+    <span class="red">function</span> sortObjectProperties(obj) {
+       <span class="red">var</span> keysSorted <span class="red">= </span>Object.keys(obj).sort();
+       <span class="red">var</span> sortedObj <span class="red">= </span>{};
+       <span class="red">for</span> (var i <span class="red">= </span>0; i < keysSorted.length; i++) {
+           <span class="red">var</span> key <span class="red">= </span>keysSorted[i];
+            sortedObj[key] <span class="red">= </span>obj[key];
+        }
+       <span class="red">return</span> sortedObj;
+    }
+}</pre>
+        </div>
+        <div id="tab1000" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> aggregateStudentResults(input) {
+   <span class="red">var</span> results <span class="red">= </span>{ };
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < input.length; i++) {
+       <span class="red">var</span> tokens <span class="red">= </span>input[i].split('|');
+       <span class="red">var</span> student <span class="red">= </span>tokens[0].trim();
+       <span class="red">var</span> course <span class="red">= </span>tokens[1].trim();
+       <span class="red">var</span> grade <span class="red">= </span>Number(tokens[2].trim());
+       <span class="red">var</span> visits <span class="red">= </span>Number(tokens[3].trim());
+       <span class="red">if</span> (!results[course]) {
+            results[course] <span class="red">= </span>{ grades: [], visits: [], students: [] };
+        }
+        results[course].grades.push(grade);
+        results[course].visits.push(visits);
+       <span class="red">if</span> (results[course].students.indexOf(student) =<span class="red">= </span>-1) {
+            results[course].students.push(student);
+        }
+    }
+
+   <span class="red">var</span> output <span class="red">= </span>{ };
+   <span class="red">var</span> courses <span class="red">= </span>Object.keys(results).sort();
+   <span class="red">for</span> (var c in courses) {
+       <span class="red">var</span> courseName <span class="red">= </span>courses[c];
+       <span class="red">var</span> courseInfo <span class="red">= </span>{
+            avgGrade: average(results[courseName].grades),
+            avgVisits: average(results[courseName].visits),
+            students: results[courseName].students.sort()
+        };
+        output[courseName] <span class="red">= </span>courseInfo;
+    }
+
+    console.log(JSON.stringify(output));
+
+    <span class="red">function</span> average(arr) {
+       <span class="red">var</span> sum <span class="red">= </span>0;
+       <span class="red">for</span> (var i in arr) {
+            sum +<span class="red">= </span>arr[i];
+        }
+       <span class="red">var</span> avg <span class="red">= </span>sum / arr.length;
+        avg <span class="red">= </span>Number(avg.toFixed(2));
+       <span class="red">return</span> avg;
+    }
+}
+</pre>
+        </div>
+        <div id="tab1001" class="tab">
+          <p></p>
+        <pre><span class="red">function</span> cloudManager(input) {
+   <span class="red">var</span> results <span class="red">= </span>[];
+
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < input.length; i++) {
+       <span class="red">var</span> data <span class="red">= </span>input[i].split(/\s+/);
+       <span class="red">var</span> file <span class="red">= </span>data[0];
+       <span class="red">var</span> extension <span class="red">= </span>data[1];
+       <span class="red">var</span> memory <span class="red">= </span>parseFloat(data[2]);
+       <span class="red">if</span> (!results[extension]) {
+            results[extension] <span class="red">= </span>{ 'files': [], 'memory': [] };
+        }
+        results[extension].files.push(file);
+        results[extension].memory.push(memory);
+    }
+
+
+   <span class="red">for</span> (var key in results) {
+        results[key].memory <span class="red">= </span>getAvg(results[key].memory);
+        results[key].files.sort();
+    }
+
+   <span class="red">var</span> output <span class="red">= </span>[];
+   <span class="red">var</span> keys <span class="red">= </span>Object.keys(results);
+    keys.sort();
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < keys.length; i++) {
+        output[keys[i]] <span class="red">= </span>results[keys[i]];
+    }
+   <span class="red">var</span> outputObj <span class="red">= </span>toObject(output);
+    console.log(JSON.stringify(outputObj));
+
+    <span class="red">function</span> getAvg(arr) {
+       <span class="red">var</span> sum <span class="red">= </span>0;
+       <span class="red">for</span> (var i <span class="red">= </span>0; i < arr.length; i++) {
+            sum +<span class="red">= </span>arr[i];
+        }
+       <span class="red">return</span> sum.toFixed(2);
+    }
+
+    <span class="red">function</span> toObject(arr) {
+       <span class="red">var</span> obj <span class="red">= </span>{ };
+       <span class="red">for</span> (var key in arr) {
+            obj[key] <span class="red">= </span>arr[key];
+        }
+       <span class="red">return</span> obj;
+    }
+}</pre>
+        </div>
+        <div id="tab1002" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> solve (arguments) {
+   <span class="red">var</span> dataRows <span class="red">= </span>arguments;
+   <span class="red">var</span> associativeArr <span class="red">= </span>{};
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < dataRows.length; i++) {
+       <span class="red">var</span> currentData <span class="red">= </span>dataRows[i].split('|');
+       <span class="red">var</span> color <span class="red">= </span>currentData[0];
+       <span class="red">if</span> (!(color in associativeArr)) {
+            associativeArr[color] <span class="red">= </span>{};
+            associativeArr[color]['opponents'] <span class="red">= </span>[];
+            associativeArr[color]['wins'] <span class="red">= </span>0;
+            associativeArr[color]['losses'] <span class="red">= </span>0;
+        }
+
+       <span class="red">if</span> (isInfo(currentData[1])) {
+            associativeArr[color][currentData[1]] <span class="red">= </span>currentData[2];
+        } else {
+           <span class="red">if</span> (currentData[1] ==<span class="red">= </span>'win') {
+                associativeArr[color]['wins'] +<span class="red">= </span>1;
+            } else {
+                associativeArr[color]['losses'] +=1;
+            }
+
+            associativeArr[color]['opponents'].push(currentData[2]);
+        }
+    }
+
+    //output
+   <span class="red">var</span><span class="red">for</span>matedResults <span class="red">= </span>{};
+    Object.keys(associativeArr).sort().forEach(<span class="red">function</span> (key, index) {
+           <span class="red">if</span> (associativeArr[key]['name'] && associativeArr[key]['age']) {
+                associativeArr[key]['opponents'].sort();
+               <span class="red">var</span> rank <span class="red">= </span>calculateRank(associativeArr[key]['wins'], associativeArr[key]['losses']);
+                // 2 digit after dec point
+                associativeArr[key]['rank'] <span class="red">= </span>rank.toFixed(2);
+                delete associativeArr[key]['wins'];
+                delete associativeArr[key]['losses'];
+                //add at specific order;
+               <span class="red">for</span>matedResults[key] <span class="red">= </span>{};
+                Object.keys(associativeArr[key]).sort().forEach(<span class="red">function</span> (innerKey, index) {
+                   <span class="red">for</span>matedResults[key][innerKey] <span class="red">= </span>associativeArr[key][innerKey];
+                });
+            } else {
+                delete associativeArr[key];
+            }
+        });
+
+    <span class="red">function</span> calculateRank(wins, losses) {
+       <span class="red">return</span> (wins + 1)/(losses + 1);
+    }
+    <span class="red">function</span> isInfo(element) {
+       <span class="red">if</span> (element ==<span class="red">= </span>'name' || element ==<span class="red">= </span>'age') {
+           <span class="red">return</span> true;
+        }
+       <span class="red">return</span> false;
+    }
+
+    console.log(JSON.stringify(formatedResults));
+}
+</pre>
+        </div>
+        <div id="tab1003" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> sulsUserModule(args) {
+
+    <span class="red">function</span> sortStudentByLevel(fS, sS) {
+       <span class="red">if</span> (fS.level < sS.level) {
+           <span class="red">return</span> -1;
+        } else<span class="red">if</span> (fS.level > sS.level) {
+           <span class="red">return</span> 1;
+        }
+       <span class="red">if</span> (fS.id < sS.id) {
+           <span class="red">return</span> -1;
+        } else<span class="red">if</span> (fS.id > sS.id) {
+           <span class="red">return</span> 1;
+        }
+    }
+
+    <span class="red">function</span> sortStudentByName(fS, sS) {
+       <span class="red">if</span> (fS.firstname < sS.firstname) {
+           <span class="red">return</span> -1;
+        } else<span class="red">if</span> (fS.firstname > sS.firstname) {
+           <span class="red">return</span> 1;
+        }
+       <span class="red">if</span> (fS.lastname < sS.lastname) {
+           <span class="red">return</span> -1;
+        } else<span class="red">if</span> (fS.lastname > sS.lastname) {
+           <span class="red">return</span> 1;
+        }
+    }
+
+    <span class="red">function</span> sortTrainerByCourses(fT, sT) {
+       <span class="red">var</span> fCourses <span class="red">= </span>fT.courses.length,
+            sCourses <span class="red">= </span>sT.courses.length;
+       <span class="red">if</span> (fCourses =<span class="red">= </span>sCourses) {
+           <span class="red">return</span> fT.lecturesPerDay - sT.lecturesPerDay;
+        }
+       <span class="red">return</span> fCourses - sCourses;
+    }
+
+    <span class="red">function</span> dispatchSort(sortArgs, studentArr, trainerArr) {
+       <span class="red">if</span> (sortArgs[0] ==<span class="red">= </span>'level') {
+            studentArr.sort(sortStudentByLevel);
+        } else<span class="red">if</span> (sortArgs[0] ==<span class="red">= </span>'name') {
+            studentArr.sort(sortStudentByName);
+        }
+       <span class="red">if</span> (sortArgs[1] ==<span class="red">= </span>'courses') {
+            trainerArr.sort(sortTrainerByCourses);
+        }
+    }
+
+    <span class="red">function</span> printStudents(arr) {
+       <span class="red">var</span> output <span class="red">= </span>[];
+        arr.forEach(<span class="red">function</span> (el) {
+           <span class="red">var</span> student <span class="red">= </span>{
+                id: el.id,
+                firstname: el.firstname,
+                lastname: el.lastname,
+                averageGrade: avg(el.grades).toFixed(2),
+                certificate: el.certificate
+			};
+            output.push(student);
+        });
+
+       <span class="red">return</span> output;
+    }
+
+    <span class="red">function</span> printTrainers(arr) {
+       <span class="red">var</span> output <span class="red">= </span>[];
+        arr.forEach(<span class="red">function</span> (el) {
+           <span class="red">var</span> trainer <span class="red">= </span>{
+                id: el.id,
+                firstname: el.firstname,
+                lastname: el.lastname,
+                courses: el.courses,
+                lecturesPerDay: el.lecturesPerDay
+			};
+            output.push(trainer);
+        });
+
+       <span class="red">return</span> output;
+    }
+
+    <span class="red">function</span> avg(arr) {
+       <span class="red">var</span> sum <span class="red">= </span>0;
+        arr.forEach(<span class="red">function</span> (el) {
+            sum +<span class="red">= </span>parseFloat(el);
+        });
+
+       <span class="red">return</span> sum / arr.length;
+    }
+
+   <span class="red">var</span> sortArguments <span class="red">= </span>args[0].split('^'),
+        trainers <span class="red">= </span>[],
+        students <span class="red">= </span>[];
+
+   <span class="red">for</span> (var i <span class="red">= </span>1; i < args.length; i++) {
+       <span class="red">var</span> currentLine <span class="red">= </span>args[i],
+            objLine <span class="red">= </span>JSON.parse(currentLine);
+
+       <span class="red">if</span> (objLine.role.trim() ==<span class="red">= </span>'student') {
+            students.push(objLine);
+        } else<span class="red">if</span> (objLine.role.trim() ==<span class="red">= </span>'trainer') {
+            trainers.push(objLine);
+        }
+    }
+    dispatchSort(sortArguments, students, trainers);
+   <span class="red">var</span> trainerOutput <span class="red">= </span>printTrainers(trainers);
+   <span class="red">var</span> studentOutput <span class="red">= </span>printStudents(students);
+   <span class="red">var</span> result <span class="red">= </span>{'students': studentOutput, 'trainers': trainerOutput};
+    console.log(JSON.stringify(result));
+}
+</pre>
+        </div>
+        <div id="tab1004" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(input) {
+
+   <span class="red">var</span> filterInfo <span class="red">= </span>input[input.length - 1];
+
+   <span class="red">var</span> dataArray <span class="red">= </span>{};
+   <span class="red">for</span> (var row <span class="red">= </span>0; row < input.length - 1; row++) {
+       <span class="red">var</span> arrayInfo <span class="red">= </span>input[row].split(/\.*\*\.*/g);
+       <span class="red">var</span> ownerName <span class="red">= </span>arrayInfo[0];
+       <span class="red">var</span> luggageName <span class="red">= </span>arrayInfo[1];
+       <span class="red">var</span> isFood <span class="red">= </span>(arrayInfo[2] ==<span class="red">= </span>'true');
+       <span class="red">var</span> isDrink <span class="red">= </span>(arrayInfo[3] ==<span class="red">= </span>'true');
+       <span class="red">var</span> isFragile <span class="red">= </span>(arrayInfo[4] ==<span class="red">= </span>'true')
+       <span class="red">var</span> weight <span class="red">= </span>parseFloat(arrayInfo[5]);
+       <span class="red">var</span> transferredWith <span class="red">= </span>arrayInfo[6];
+
+       <span class="red">if</span>(!(ownerName in dataArray)) {
+            dataArray[ownerName] <span class="red">= </span>{};
+        }
+
+       <span class="red">var</span> type <span class="red">= </span>'';
+        isFood ? type <span class="red">= </span>'food' : isDrink ? type <span class="red">= </span>'drink' : type <span class="red">= </span>'other';
+        dataArray[ownerName][luggageName] <span class="red">= </span>{'kg':weight, 'fragile':isFragile, 'type': type, 'transferredWith' : transferredWith};
+    }
+   <span class="red">if</span>(filterInfo ==<span class="red">= </span>'luggage name') {
+       <span class="red">var</span> outputNameSort <span class="red">= </span>{};
+        Object.keys(dataArray).forEach(<span class="red">function</span>(key) {
+            outputNameSort[key]={};
+           <span class="red">var</span> sortedInnerKeys <span class="red">= </span>Object.keys(dataArray[key]).sort();
+
+            sortedInnerKeys.forEach(<span class="red">function</span> (innerkey) {
+                outputNameSort[key][innerkey] <span class="red">= </span>dataArray[key][innerkey];
+            })
+        });
+        console.log(JSON.stringify(outputNameSort));
+    } else<span class="red">if</span> (filterInfo ==<span class="red">= </span>'weight') {
+       <span class="red">var</span> outputKgSort <span class="red">= </span>{};
+        Object.keys(dataArray).forEach(<span class="red">function</span>(key) {
+            outputKgSort[key]={};
+           <span class="red">var</span> a <span class="red">= </span>Object.keys(dataArray[key]).sort(<span class="red">function</span> (a,b) {
+               <span class="red">return</span> dataArray[key][a].kg- dataArray[key][b].kg;
+            });
+            a.forEach(<span class="red">function</span> (value) {
+                outputKgSort[key][value] <span class="red">= </span>dataArray[key][value];
+            })
+        });
+        console.log(JSON.stringify(outputKgSort))
+    } else<span class="red">if</span> (filterInfo ==<span class="red">= </span>'strict') {
+        console.log(JSON.stringify(dataArray));
+    }
+    //console.log(dataArray)
+}
+</pre>
+        </div>
+        <div id="tab1005" class="tab">
+          <p></p>
+         <pre><span class="red">function</span> solve(input) {
+   <span class="red">var</span> players <span class="red">= </span>[];
+
+    <span class="red">function</span> updatePlayer(name, matchesWon, matchesLost, setsWon, setsLost, gamesWon, gamesLost) {
+       <span class="red">var</span> player <span class="red">= </span>players.filter(<span class="red">function</span> (p) {
+           <span class="red">return</span> p.name ==<span class="red">= </span>name;
+        })[0];
+
+       <span class="red">if</span> (!player) {
+            players.push(
+                {
+                    name: name,
+                    matchesWon: matchesWon,
+                    matchesLost: matchesLost,
+                    setsWon: setsWon,
+                    setsLost: setsLost,
+                    gamesWon: gamesWon,
+                    gamesLost: gamesLost
+                });
+        } else {
+            player.matchesWon +<span class="red">= </span>matchesWon;
+            player.matchesLost +<span class="red">= </span>matchesLost;
+            player.setsWon +<span class="red">= </span>setsWon;
+            player.setsLost +<span class="red">= </span>setsLost;
+            player.gamesWon +<span class="red">= </span>gamesWon;
+            player.gamesLost +<span class="red">= </span>gamesLost;
+        }
+    }
+
+    input <span class="red">= </span>input.map(<span class="red">function</span> (inputLine) {
+       <span class="red">return</span> inputLine.replace(/\s+/g, ' ');
+    });
+
+    input.forEach(<span class="red">function</span> (inputLine) {
+       <span class="red">var</span> inputTokens <span class="red">= </span>inputLine.split(':'),
+            playerData <span class="red">= </span>inputTokens[0].split('vs.'),
+            resultData <span class="red">= </span>inputTokens[1].trim(),
+            firstName <span class="red">= </span>playerData[0].trim(),
+            secondName <span class="red">= </span>playerData[1].trim(),
+            firstPlayerGames <span class="red">= </span>0,
+            firstPlayerSets <span class="red">= </span>0,
+            firstPlayerMatches <span class="red">= </span>0,
+            secondPlayerGames <span class="red">= </span>0,
+            secondPlayerSets <span class="red">= </span>0,
+            secondPlayerMatches <span class="red">= </span>0,
+            firstPlayerSetBalance <span class="red">= </span>0;
+
+        resultData.split(' ').forEach(<span class="red">function</span> (setResult) {
+           <span class="red">var</span> gameInfo <span class="red">= </span>setResult.split('-').map(<span class="red">function</span> (str) {
+               <span class="red">return</span> parseInt(str);
+            });
+
+            firstPlayerGames +<span class="red">= </span>gameInfo[0];
+            secondPlayerGames +<span class="red">= </span>gameInfo[1];
+
+           <span class="red">if</span> (gameInfo[0] > gameInfo[1]) {
+                firstPlayerSets++;
+                firstPlayerSetBalance++;
+            } else {
+                secondPlayerSets++;
+                firstPlayerSetBalance--;
+            }
+        });
+
+       <span class="red">if</span> (firstPlayerSetBalance > 0) {
+            firstPlayerMatches++;
+        } else {
+            secondPlayerMatches++;
+        }
+
+        updatePlayer(firstName, firstPlayerMatches, secondPlayerMatches, firstPlayerSets, secondPlayerSets, firstPlayerGames, secondPlayerGames);
+        updatePlayer(secondName, secondPlayerMatches, firstPlayerMatches, secondPlayerSets, firstPlayerSets, secondPlayerGames, firstPlayerGames);
+
+    });
+
+    players.sort(<span class="red">function</span> (firstPlayer, secondPlayer) {
+       <span class="red">if</span> (secondPlayer.matchesWon !=<span class="red">= </span>firstPlayer.matchesWon) {
+           <span class="red">return</span> secondPlayer.matchesWon - firstPlayer.matchesWon;
+        }
+
+       <span class="red">if</span> (secondPlayer.setsWon !=<span class="red">= </span>firstPlayer.setsWon) {
+           <span class="red">return</span> secondPlayer.setsWon - firstPlayer.setsWon;
+        }
+
+       <span class="red">if</span> (secondPlayer.gamesWon !=<span class="red">= </span>firstPlayer.gamesWon) {
+           <span class="red">return</span> secondPlayer.gamesWon - firstPlayer.gamesWon;
+        }
+
+       <span class="red">return</span> firstPlayer.name.localeCompare(secondPlayer.name);
+    });
+
+    console.log(JSON.stringify(players));
+}</pre>
+        </div>
+        <div id="tab1006" class="tab">
+        <p></p>
+        <pre><span class="red">function</span> studentProtocol(arr) {
+   <span class="red">var</span> exams <span class="red">= </span>{};
+   <span class="red">for</span> (var i <span class="red">= </span>0; i < arr.length; i++) {
+       <span class="red">var</span> input <span class="red">= </span>arr[i].split(/(?:-|:)+/g).map(<span class="red">function</span> (string) {
+           <span class="red">return</span> string.trim();
+        });
+
+       <span class="red">var</span> name <span class="red">= </span>input[0];
+       <span class="red">var</span> subject <span class="red">= </span>input[1];
+       <span class="red">var</span> score <span class="red">= </span>parseInt(input[2]);
+
+       <span class="red">if</span> (score ><span class="red">= </span>0 && score <<span class="red">= </span>400) {
+           <span class="red">if</span> (!exams.hasOwnProperty(subject)) {
+                exams[subject] <span class="red">= </span>[];
+                exams[subject].push({
+                    name: name,
+                    result: score,
+                    makeUpExams : 0
+                });
+            } else {
+               <span class="red">var</span> studentExists <span class="red">= </span>false;
+               <span class="red">for</span> (var j in exams[subject]) {
+                   <span class="red">if</span> (exams[subject][j].name =<span class="red">= </span>name) {
+                        exams[subject][j].makeUpExams++;
+                        studentExists <span class="red">= </span>true;
+                       <span class="red">if</span> (exams[subject][j].result < score) {
+                            exams[subject][j].result <span class="red">= </span>score;
+                        }
+                    }
+                }
+
+               <span class="red">if</span> (!studentExists) {
+                    exams[subject].push({
+                        name: name,
+                        result : score,
+                        makeUpExams : 0
+                    });
+                }
+            }
+        }
+    }
+
+   <span class="red">for</span> (var subject in exams) {
+        exams[subject] <span class="red">= </span>exams[subject].sort(<span class="red">function</span> (a, b) {
+           <span class="red">if</span> (a.result !<span class="red">= </span>b.result) {
+               <span class="red">return</span> b.result - a.result;
+            } else  {
+               <span class="red">if</span> (a.makeUpExams !<span class="red">= </span>b.makeUpExams) {
+                   <span class="red">return</span> a.makeUpExams - b.makeUpExams;
+                } else {
+                   <span class="red">return</span> a.name > b.name;
+                }
+            }
+        });
+    }
+
+    console.log(JSON.stringify(exams));
+}</pre>
+      </div>
+        <div id="tab1007" class="tab">
+          <p></p>
+        <pre><span class="red">function</span> solve(arr) {
+   <span class="red">var</span> data <span class="red">= </span>{};
+    arr.forEach(<span class="red">function</span> (el) {
+       <span class="red">var</span> lineArgs <span class="red">= </span>el.trim().split(/\s+&\s+/g);
+       <span class="red">var</span> task <span class="red">= </span>'Task ' + lineArgs[2];
+       <span class="red">if</span> (!data[task]) {
+            data[task] <span class="red">= </span>{
+                tasks: [],
+                average: 0,
+                lines: 0
+            };
+        }
+
+        data[task].tasks.push({
+            name: lineArgs[0],
+            type: lineArgs[1]
+        });
+        data[task].average +<span class="red">= </span>Number(lineArgs[3]);
+        data[task].lines +<span class="red">= </span>Number(lineArgs[4]);
+    });
+
+    Object.keys(data).forEach(<span class="red">function</span> (key) {
+        data[key].average <span class="red">= </span>parseFloat((data[key].average / data[key].tasks.length).toFixed(2));
+        data[key].tasks.sort(<span class="red">function</span> (a, b) {
+           <span class="red">return</span> a.name.localeCompare(b.name);
+        });
+    });
+
+   <span class="red">var</span> keysSorted <span class="red">= </span>Object.keys(data).sort(<span class="red">function</span> (a, b) {
+       <span class="red">if</span> (data[a].average =<span class="red">= </span>data[b].average) {
+           <span class="red">return</span> data[a].lines - data[b].lines;
+        }
+
+       <span class="red">return</span> data[b].average - data[a].average;
+    });
+
+   <span class="red">var</span> sortedObject <span class="red">= </span>{};
+    keysSorted.forEach(<span class="red">function</span> (el) {
+        sortedObject[el] <span class="red">= </span>data[el];
+    });
+
+    console.log(JSON.stringify(sortedObject));
+}
+</pre>
+        </div>
+        <div id="tab1008" class="tab">
+          <p></p>
+          <pre><span class="red">function</span> angularParser(input) {
+   <span class="red">let</span> applications <span class="red">= </span>{};
+   <span class="red">let</span> controlers <span class="red">= </span>{};
+   <span class="red">let</span> models <span class="red">= </span>{};
+   <span class="red">let</span> views <span class="red">= </span>{};
+
+   <span class="red">for</span>(let line of input){
+       <span class="red">if</span>(line.startsWith("$app")){
+           <span class="red">let</span> tokens <span class="red">= </span>line.split("=");
+           <span class="red">let</span> appName <span class="red">= </span>tokens[1].replace("'", "").replace("'", "");
+            applications[appName] <span class="red">= </span>{};
+        } else<span class="red">if</span>(line.startsWith("$controller")){
+           <span class="red">let</span> tokens <span class="red">= </span>line.split("'");
+           <span class="red">let</span> appName <span class="red">= </span>tokens[3];
+           <span class="red">let</span> controllerName <span class="red">= </span>tokens[1];
+           <span class="red">if</span>(! controlers[appName]){
+                controlers[appName] <span class="red">= </span>[];
+            }
+            controlers[appName].push(controllerName);
+        } else<span class="red">if</span>(line.startsWith("$model")){
+           <span class="red">let</span> tokens <span class="red">= </span>line.split("'");
+           <span class="red">let</span> appName <span class="red">= </span>tokens[3];
+           <span class="red">let</span> modelName <span class="red">= </span>tokens[1];
+           <span class="red">if</span>(! models[appName]){
+                models[appName] <span class="red">= </span>[];
+            }
+            models[appName].push(modelName);
+        } else<span class="red">if</span>(line.startsWith("$view")){
+           <span class="red">let</span> tokens <span class="red">= </span>line.split("'");
+           <span class="red">let</span> appName <span class="red">= </span>tokens[3];
+           <span class="red">let</span> viewName <span class="red">= </span>tokens[1];
+           <span class="red">if</span>(! views[appName]){
+                views[appName] <span class="red">= </span>[];
+            }
+            views[appName].push(viewName);
+        }
+    }
+
+   <span class="red">for</span>(let app of Object.keys(applications)){
+       <span class="red">let</span> ctrls <span class="red">= </span>controlers[app] !<span class="red">= </span>undefined ? controlers[app].sort((a, b) => a.localeCompare(b)) : [];
+       <span class="red">let</span> mdls <span class="red">= </span>models[app] !<span class="red">= </span>undefined ? models[app].sort((a, b) => a.localeCompare(b)) : [];
+       <span class="red">let</span> vs <span class="red">= </span>views[app] !<span class="red">= </span>undefined ? views[app].sort((a, b) => a.localeCompare(b)) : []
+
+        applications[app] <span class="red">= </span>{
+            controllers: ctrls,
+            models: mdls,
+            views: vs
+        }
+    }
+
+    applications <span class="red">= </span>sortObject(applications);
+    console.log(JSON.stringify(applications));
+
+    <span class="red">function</span> sortApps(a, b) {
+       <span class="red">if</span>(applications[a]['controllers'].length !<span class="red">= </span>applications[b]['controllers'].length){
+           <span class="red">return</span> applications[b]['controllers'].length - applications[a]['controllers'].length;
+        }
+       <span class="red">return</span> applications[a]['models'].length - applications[b]['models'].length;
+    }
+
+    <span class="red">function</span> sortObject(obj) {
+       <span class="red">return</span> Object.keys(obj).sort((a, b) => sortApps(a, b)).reduce(<span class="red">function</span> (result, key) {
+            result[key] <span class="red">= </span>obj[key];
+           <span class="red">return</span> result;
+        }, {});
+    }
+}</pre>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
